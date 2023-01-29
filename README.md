@@ -1,4 +1,12 @@
-# Next.js-Template-Sky
+# ImitateJuejingSite
+
+## Usage
+
+Using pnpm@7.25.0 instead of yarn or npm.
+
+```shell
+pnpm install
+```
 
 ## Technology Stack
 
@@ -20,3 +28,7 @@
 - [PostCSS](https://postcss.org/)
 - [Jest](https://jestjs.io/)
 - [Playwright](https://playwright.dev/)
+
+## License
+
+[MIT](https://github.com/skyclouds2001/ImitateJuejingSite/blob/master/LICENSE)

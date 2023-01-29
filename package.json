@@ -1,25 +1,15 @@
 {
-  "name": "nextjs-template-sky",
+  "name": "imitate-juejing-site",
   "version": "0.0.0",
   "private": true,
-  "description": "A template project for Next.js by skyclouds2001.",
+  "description": "A imitate juejing site.",
   "keywords": [
     "next.js",
-    "template",
-    "config",
-    "typescript",
-    "ant design",
-    "eslint",
-    "prettier",
-    "stylelint",
-    "commitlint",
-    "lint-staged",
-    "postcss",
-    "tailwindcss"
+    "juejing"
   ],
   "author": {
     "name": "skyclouds2001",
-    "email": "skyclouds2001@163.com",
+    "email": "skyclouds2001@gmail.com",
     "url": "https://skyclouds2001.github.io/"
   },
   "contributors": [
@@ -27,17 +17,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skyclouds2001/next.js-template-config-sky.git"
+    "url": "git+https://github.com/skyclouds2001/ImitateJuejingSite.git"
   },
-  "homepage": "https://github.com/skyclouds2001/next.js-template-config-sky#readme",
+  "homepage": "https://github.com/skyclouds2001/ImitateJuejingSite#readme",
   "bugs": {
-    "url": "https://github.com/skyclouds2001/next.js-template-config-sky/issues",
-    "email": "skyclouds2001@163.com"
+    "url": "https://github.com/skyclouds2001/ImitateJuejingSite/issues",
+    "email": "skyclouds2001@gmail.com"
   },
   "license": "MIT",
   "packageManager": "pnpm@7.25.0",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "prepare": "husky install",
