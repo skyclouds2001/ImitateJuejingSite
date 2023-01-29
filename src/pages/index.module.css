@@ -1,0 +1,12 @@
+.title {
+  font-size: 20px;
+  @apply font-bold;
+}
+
+.name {
+  font-size: 16px;
+}
+
+.value {
+  font-size: 16px;
+}
