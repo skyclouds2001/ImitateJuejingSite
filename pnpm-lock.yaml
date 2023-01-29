@@ -9,6 +9,7 @@ specifiers:
   '@next/font': ^13.1.6
   '@playwright/test': ^1.30.0
   '@reduxjs/toolkit': ^1.9.1
+  '@stylelint/postcss-css-in-js': ^0.38.0
   '@tailwindcss/aspect-ratio': ^0.4.2
   '@tailwindcss/forms': ^0.5.3
   '@tailwindcss/line-clamp': ^0.4.2
@@ -61,6 +62,7 @@ specifiers:
   postcss-preset-env: ^8.0.1
   postcss-sass: ^0.5.0
   postcss-styl: ^0.12.3
+  postcss-syntax: ^0.36.2
   prettier: ^2.8.3
   prop-types: ^15.8.1
   qs: ^6.11.0
@@ -100,6 +102,7 @@ devDependencies:
   '@jest/globals': 29.4.1
   '@microsoft/eslint-formatter-sarif': 3.0.0
   '@playwright/test': 1.30.0
+  '@stylelint/postcss-css-in-js': 0.38.0_64375vj2stjdn6gyt55zwvoboa
   '@tailwindcss/aspect-ratio': 0.4.2_tailwindcss@3.2.4
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.4
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
@@ -147,6 +150,7 @@ devDependencies:
   postcss-preset-env: 8.0.1_postcss@8.4.21
   postcss-sass: 0.5.0
   postcss-styl: 0.12.3
+  postcss-syntax: 0.36.2_2grdega7tvpb3xgqu4tyuawp2a
   prettier: 2.8.3
   sass: 1.57.1
   stylelint: 14.16.1
@@ -1630,6 +1634,19 @@ packages:
     resolution: { integrity: sha512-SwUDyjWnah1AaNl7kxsa7cfLhlTYoiyhDAIgyh+El30YvXs/o7OLXpYH88Zdhyx9JExKrmHDJ+10bwIcY80Jmw== }
     dependencies:
       '@sinonjs/commons': 2.0.0
+    dev: true
+
+  /@stylelint/postcss-css-in-js/0.38.0_64375vj2stjdn6gyt55zwvoboa:
+    resolution: { integrity: sha512-XOz5CAe49kS95p5yRd+DAIWDojTjfmyAQ4bbDlXMdbZTQ5t0ThjSLvWI6JI2uiS7MFurVBkZ6zUqcimzcLTBoQ== }
+    peerDependencies:
+      postcss: '>=7.0.0'
+      postcss-syntax: '>=0.36.2'
+    dependencies:
+      '@babel/core': 7.20.12
+      postcss: 8.4.21
+      postcss-syntax: 0.36.2_2grdega7tvpb3xgqu4tyuawp2a
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@swc/helpers/0.4.14:
@@ -7178,6 +7195,33 @@ packages:
       postcss: 8.4.21
       postcss-value-parser: 4.2.0
       svgo: 2.8.0
+    dev: true
+
+  /postcss-syntax/0.36.2_2grdega7tvpb3xgqu4tyuawp2a:
+    resolution: { integrity: sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w== }
+    peerDependencies:
+      postcss: '>=5.0.0'
+      postcss-html: '*'
+      postcss-jsx: '*'
+      postcss-less: '*'
+      postcss-markdown: '*'
+      postcss-scss: '*'
+    peerDependenciesMeta:
+      postcss-html:
+        optional: true
+      postcss-jsx:
+        optional: true
+      postcss-less:
+        optional: true
+      postcss-markdown:
+        optional: true
+      postcss-scss:
+        optional: true
+    dependencies:
+      postcss: 8.4.21
+      postcss-html: 1.5.0
+      postcss-less: 6.0.0_postcss@8.4.21
+      postcss-markdown: 1.2.0
     dev: true
 
   /postcss-unique-selectors/5.1.1_postcss@8.4.21:
