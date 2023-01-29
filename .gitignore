@@ -8,7 +8,7 @@
 /playwright-result/
 /playwright-report/
 /playwright/.cache/
-
+/.idea
 # next.js
 /.next/
 /out/
