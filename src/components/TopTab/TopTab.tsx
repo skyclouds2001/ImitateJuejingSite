@@ -9,6 +9,7 @@ import { CaretDownOutlined } from '@ant-design/icons'
 interface NavItem {
   key: number
   label: string
+  remark?: string
 }
 interface NavProps {
   navList: NavItem[]
@@ -94,6 +95,8 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
                   <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
                     {item.label}
                   </a>
+                  {/* remark备注 */}
+                  {item.remark && <span className={styles.remark}>{item.remark}</span>}
                 </li>
               ))}
             </ul>

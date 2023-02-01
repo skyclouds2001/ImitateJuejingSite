@@ -5,6 +5,7 @@ import TopTab from '@/components/TopTab/TopTab'
 interface NavItem {
   key: number
   label: string
+  remark?: string
 }
 interface NavProps {
   navList: NavItem[]

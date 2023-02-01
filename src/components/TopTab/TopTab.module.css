@@ -35,6 +35,7 @@
 }
 
 .toptabcontainer .nav ul li {
+  position: relative;
   width: 52px;
   height: 100%;
   font-size: 14px;
@@ -100,4 +101,23 @@
   height: 100%;
   padding-top: 15px;
   background-color: red;
+}
+
+/* 红色备注 */
+.toptabcontainer .navbig .remark {
+  position: absolute;
+  top: 5px;
+  left: 25px;
+  box-sizing: content-box;
+  width: auto;
+  height: 15px;
+  padding: 2px;
+  font-size: 12px;
+  line-height: 15px;
+  color: white;
+  white-space: nowrap;
+  background-color: red;
+  border-radius: 10px;
+  transform: scale(0.75);
+  -webkit-transform-origin-x: 0;
 }

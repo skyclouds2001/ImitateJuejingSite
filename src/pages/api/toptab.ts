@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 interface NavItem {
   key: number
   label: string
+  remark?: string
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<{ navList: NavItem[] }>) => {
@@ -35,6 +36,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<{ navList: NavItem[] 
       {
         key: 7,
         label: 'APP',
+        remark: '邀请有礼',
       },
     ],
   })
