@@ -24,6 +24,9 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
   // 更新浏览器窗口宽度函数
   const browsewidthUpdate: any = (e: any) => {
     setBrowsWidth(e.target.innerWidth)
+    const logotext = document.querySelector(`.${styles.logo} span`)
+    if (logotext && e.target.innerWidth <= 600) logotext.className = styles.hidden
+    else if (logotext) logotext.className = ''
   }
   // 更新浏览器滚动条位置函数
   const sliderHeightUpdate: any = (e: any) => {
@@ -36,8 +39,6 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
     // 获取滚动元素
     const scrollEle = document.getElementById('scrollDom') || document.body
     // 初始化
-    // setBrowsWidth(window.innerWidth)
-    // setBrowsWidth(document.documentElement.scrollTop)
     window.addEventListener('resize', browsewidthUpdate)
     scrollEle.addEventListener('scroll', sliderHeightUpdate)
     return () => {
