@@ -6,7 +6,6 @@ export interface NavItem {
 export interface ArtNavItem {
   key: number
   label: string
-  remark?: string
 }
 export interface NavProps {
   navList?: NavItem[]

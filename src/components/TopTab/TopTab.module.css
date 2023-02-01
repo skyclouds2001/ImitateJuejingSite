@@ -5,9 +5,8 @@
   transition: all 1s;
 }
 
-.toptabcontainer {
+#toptabcontainer {
   position: fixed;
-  top: 0;
   left: 0;
   display: flex;
   width: 100%;
@@ -16,25 +15,35 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
-.toptabcontainer .logo {
+.toptabcontainerfirst {
+  top: 0;
+  transition: all 0.3s linear;
+}
+
+.toptabcontainersroll {
+  top: -60px;
+  transition: all 0.3s linear;
+}
+
+#toptabcontainer .logo {
   display: flex;
   height: 22px;
   margin: 19px 10px;
   font-size: 18px;
 }
 
-.toptabcontainer .logo span {
+#toptabcontainer .logo span {
   margin-left: 5px;
   line-height: 22px;
 }
 
-.toptabcontainer .navbig ul:first-of-type {
+#toptabcontainer .navbig ul:first-of-type {
   display: flex;
   line-height: 60px;
   text-align: center;
 }
 
-.toptabcontainer .nav ul li {
+#toptabcontainer .nav ul li {
   position: relative;
   width: 52px;
   height: 100%;
@@ -43,19 +52,19 @@
   color: #515767;
 }
 
-.toptabcontainer .nav ul li a {
+#toptabcontainer .nav ul li a {
   display: inline-block;
   height: 60px;
   cursor: pointer;
 }
 
-.toptabcontainer .nav ul li a:hover {
+#toptabcontainer .nav ul li a:hover {
   color: #515767;
   border-bottom: 2px solid #1e80ff;
 }
 
 /* 被选中的nav item */
-.toptabcontainer .nav .curselect {
+#toptabcontainer .nav .curselect {
   color: #1e80ff;
 }
 
@@ -65,11 +74,11 @@
 }
 
 /* 当页面过窄时nav显示 */
-.toptabcontainer .nav .navsmall {
+#toptabcontainer .nav .navsmall {
   position: relative;
 }
 
-.toptabcontainer .nav .navsmall .navfirst {
+#toptabcontainer .nav .navsmall .navfirst {
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -79,7 +88,7 @@
   text-align: center;
 }
 
-.toptabcontainer .nav .dropdown {
+#toptabcontainer .nav .dropdown {
   position: absolute;
   top: 50px;
   left: -47px;
@@ -94,7 +103,7 @@
 }
 
 /* 切换主题按钮 */
-.toptabcontainer .theme {
+#toptabcontainer .theme {
   position: absolute;
   right: 80px;
   width: 30px;
@@ -104,7 +113,7 @@
 }
 
 /* 红色备注 */
-.toptabcontainer .navbig .remark {
+#toptabcontainer .navbig .remark {
   position: absolute;
   top: 5px;
   left: 25px;

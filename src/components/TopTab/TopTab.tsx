@@ -24,14 +24,13 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
   // 更新浏览器滚动条位置函数
   const sliderHeightUpdate: any = (e: any) => {
     setSliderHeight(e.target.scrollTop)
-    const top = document.getElementsByClassName(styles.toptabcontainer)[0]
-    if (e.target.scrollTop >= 290) top.classList.add(styles.hidden)
-    else top.classList.remove(styles.hidden)
+    const top = document.querySelector('#' + styles.toptabcontainer)
+    if (top && e.target.scrollTop >= 290) top.className = styles.toptabcontainersroll
+    else if (top) top.className = styles.toptabcontainerfirst
   }
   useEffect(() => {
     // 获取滚动元素
     const scrollEle = document.getElementById('scrollDom') || document.body
-    // 初始化
     window.addEventListener('resize', browsewidthUpdate)
     scrollEle.addEventListener('scroll', sliderHeightUpdate)
     return () => {
@@ -71,7 +70,7 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
   return (
     <>
       {/* 顶部tab */}
-      <div className={styles.toptabcontainer}>
+      <div id={styles.toptabcontainer} className={styles.toptabcontainerfirst}>
         {/* 稀土掘金logo区域 */}
         <div className={styles.logo}>
           <Image src={logo} alt={'掘金社区'} width={24}></Image>

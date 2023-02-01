@@ -1,3 +1,43 @@
-.nav {
+/* div容器 */
+#container {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  background-color: white;
+}
+
+.artnavcontainerscroll {
+  top: 0;
+  transition: all 0.3s linear;
+}
+
+.artnavcontainer {
+  top: 60px;
+  transition: all 0.3s linear;
+}
+
+/* nav导航栏 */
+.navul {
   display: flex;
+  max-width: 960px;
+  height: 46px;
+  margin: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.navul li {
+  display: inline-block;
+  width: auto;
+  height: 46px;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 46px;
+  color: rgb(144 144 144);
+}
+
+.navul .selectli {
+  color: rgb(0 127 255);
 }
