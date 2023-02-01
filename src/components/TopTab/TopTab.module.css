@@ -1,0 +1,104 @@
+/* 暗色主题 */
+.dark {
+  color: white;
+  background-color: black;
+  transition: all 1s;
+}
+
+.toptabcontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.toptabcontainer .logo {
+  display: flex;
+  width: 107px;
+  height: 22px;
+  margin: 19px 20px;
+  font-size: 18px;
+}
+
+.toptabcontainer .logo span {
+  margin-left: 5px;
+  line-height: 22px;
+}
+
+.toptabcontainer .navbig ul:first-of-type {
+  display: flex;
+  line-height: 60px;
+  text-align: center;
+}
+
+.toptabcontainer .nav ul li {
+  width: 52px;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #515767;
+}
+
+.toptabcontainer .nav ul li a {
+  display: inline-block;
+  height: 60px;
+  cursor: pointer;
+}
+
+.toptabcontainer .nav ul li a:hover {
+  color: #515767;
+  border-bottom: 2px solid #1e80ff;
+}
+
+/* 被选中的nav item */
+.toptabcontainer .nav .curselect {
+  color: #1e80ff;
+}
+
+/* 切换nav栏的显示模式 */
+.hidden {
+  display: none;
+}
+
+/* 当页面过窄时nav显示 */
+.toptabcontainer .nav .navsmall {
+  position: relative;
+}
+
+.toptabcontainer .nav .navsmall .navfirst {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  line-height: 60px;
+  color: #1e80ff;
+  text-align: center;
+}
+
+.toptabcontainer .nav .dropdown {
+  position: absolute;
+  top: 50px;
+  left: -47px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 142px;
+  line-height: 60px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #f1f1f1;
+}
+
+/* 切换主题按钮 */
+.toptabcontainer .theme {
+  position: absolute;
+  right: 80px;
+  width: 30px;
+  height: 100%;
+  padding-top: 15px;
+  background-color: red;
+}
