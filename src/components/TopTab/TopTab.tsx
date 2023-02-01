@@ -5,15 +5,7 @@ import logo from '/public/logo.png'
 import light from '/public/light.png'
 import dark from '/public/dark.png'
 import { CaretDownOutlined } from '@ant-design/icons'
-
-interface NavItem {
-  key: number
-  label: string
-  remark?: string
-}
-interface NavProps {
-  navList: NavItem[]
-}
+import { NavProps } from '../../interface/nav'
 
 const TopTab: React.FC<NavProps> = (props: NavProps) => {
   // 顶部tab 配置数组
@@ -90,31 +82,33 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
           {/* 页面足够宽-nav导航栏 */}
           <div className={Browsewidth < 1140 ? styles.hidden : styles.navbig}>
             <ul>
-              {navList.map((item) => (
-                <li key={item.key}>
-                  <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
-                    {item.label}
-                  </a>
-                  {/* remark备注 */}
-                  {item.remark && <span className={styles.remark}>{item.remark}</span>}
-                </li>
-              ))}
+              {navList &&
+                navList.map((item) => (
+                  <li key={item.key}>
+                    <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
+                      {item.label}
+                    </a>
+                    {/* remark备注 */}
+                    {item.remark && <span className={styles.remark}>{item.remark}</span>}
+                  </li>
+                ))}
             </ul>
           </div>
           {/* 页面不够宽的兼容-nav导航栏 */}
           <div className={(styles.hidden, Browsewidth >= 1140 ? styles.hidden : styles.navsmall)}>
             <button className={styles.navfirst} onClick={handleDropdown}>
-              {navList[0].label}
+              {navList && navList[0].label}
               <CaretDownOutlined />
             </button>
             <ul className={styles.hidden}>
-              {navList.map((item) => (
-                <li key={item.key}>
-                  <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {navList &&
+                navList.map((item) => (
+                  <li key={item.key}>
+                    <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
@@ -128,109 +122,6 @@ const TopTab: React.FC<NavProps> = (props: NavProps) => {
           </button>
         </div>
       </div>
-      {/* 测试代码 需删除 */}
-      <ul>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-      </ul>
     </>
   )
 }
