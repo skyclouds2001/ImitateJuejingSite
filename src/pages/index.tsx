@@ -2,6 +2,7 @@ import React from 'react'
 import type { GetServerSideProps } from 'next'
 import TopTab from '@/components/TopTab/TopTab'
 import ArticleTab from '@/components/ArticleTab/ArticleTab'
+import BookletAdv from '@/components/BookletAdv/BookletAdv'
 import { NavProps, ArtNavItem, NavItem } from '../interface/nav'
 
 const Home: React.FC<NavProps> = (props: NavProps) => {
@@ -11,6 +12,8 @@ const Home: React.FC<NavProps> = (props: NavProps) => {
       <TopTab navList={props.navList} />
       {/* 文章分类 nav */}
       <ArticleTab navList={props.artnavList} />
+      {/* 小册广告位 */}
+      <BookletAdv />
       {/* 测试代码 需删除 */}
       <ul>
         <li>111</li>

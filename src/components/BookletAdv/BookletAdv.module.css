@@ -1,0 +1,62 @@
+.hidden {
+  display: none;
+}
+
+.advcontainer {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  margin-top: 121px;
+  margin-left: 15px;
+}
+
+/* 广告图片 */
+.advimg {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.advimg #closebtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.advimg .advtips {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  height: 36px;
+  padding: 0 15px;
+  font-size: 20px;
+  line-height: 36px;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(0 0 0 / 20%);
+  border: 1px solid #fff;
+  border-radius: 6px;
+  transform: scale(0.5);
+}
+
+/* 下载 */
+.advcontainer .download {
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+}
+
+.advcontainer .download .textcontainer {
+  margin-left: 15px;
+  font-size: 12px;
+  color: #86909c;
+}
+
+.textcontainer p:first-child {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #1d2129;
+}
