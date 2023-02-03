@@ -3,10 +3,8 @@ import type { GetServerSideProps } from 'next'
 import TopTab from '@/components/TopTab/TopTab'
 import ArticleTab from '@/components/ArticleTab/ArticleTab'
 import { NavProps, ArtNavItem, NavItem } from '../interface/nav'
-import { Layout } from 'antd'
 
 const Home: React.FC<NavProps> = (props: NavProps) => {
-  const { Header, Content } = Layout
   return (
     <>
       {/* 顶部 nav */}
