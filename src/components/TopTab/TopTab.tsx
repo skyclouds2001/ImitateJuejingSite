@@ -5,11 +5,13 @@ import logo from '/public/logo.png'
 import light from '/public/light.png'
 import dark from '/public/dark.png'
 import { CaretDownOutlined } from '@ant-design/icons'
-import { NavProps } from '../../interface/nav'
+import { useSelector } from 'react-redux'
+import type { RootState } from '@/store'
 
-const TopTab: React.FC<NavProps> = (props: NavProps) => {
+const TopTab: React.FC = () => {
   // 顶部tab 配置数组
-  const { navList } = props
+  const navList = useSelector<RootState, RootState['toptab']['topnavList']>((state) => state.toptab.topnavList)
+  // const { navList } = props
   // 浏览器窗口宽度
   const [Browsewidth, setBrowsWidth] = useState<number>(1400)
   // 浏览器窗口高度

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { ArtNavItem } from '../../interface/nav'
+import { NavItem } from '../../interface/nav'
 
-const handler = (req: NextApiRequest, res: NextApiResponse<{ navList: ArtNavItem[] }>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<{ navList: NavItem[] }>) => {
   res.status(200).json({
     // 首页nav配置数据
     navList: [

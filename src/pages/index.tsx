@@ -1,122 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { GetServerSideProps } from 'next'
+import { Layout } from '@/components/Layout/layout'
+import { NavProps, ArtNavItem, NavItem } from '../interface/nav'
+import { useDispatch } from 'react-redux'
+import type { AppDispatch } from '@/store'
+import { changeTopNavList, changeArticleNavList } from '@/store'
 import TopTab from '@/components/TopTab/TopTab'
 import ArticleTab from '@/components/ArticleTab/ArticleTab'
 import BookletAdv from '@/components/BookletAdv/BookletAdv'
-import { NavProps, ArtNavItem, NavItem } from '../interface/nav'
 
 const Home: React.FC<NavProps> = (props: NavProps) => {
+  const dispatch = useDispatch<AppDispatch>()
+  useEffect(() => {
+    // 更新 store 中的 topnav
+    if (props.navList) dispatch(changeTopNavList(props.navList))
+    // 更新 store 中的 artnav
+    if (props.artnavList) dispatch(changeArticleNavList(props.artnavList))
+  }, [dispatch, props])
   return (
     <>
       {/* 顶部 nav */}
-      <TopTab navList={props.navList} />
+      <TopTab />
       {/* 文章分类 nav */}
-      <ArticleTab navList={props.artnavList} />
+      <ArticleTab />
       {/* 小册广告位 */}
       <BookletAdv />
-      {/* 测试代码 需删除 */}
-      <ul>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-        <li>111</li>
-      </ul>
     </>
   )
 }

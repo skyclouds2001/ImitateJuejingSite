@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styles from './ArticleTab.module.css'
-import { NavProps } from '../../interface/nav'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/index'
 
-const ArticleTab: React.FC<NavProps> = (props: NavProps) => {
+const ArticleTab: React.FC = () => {
   // 文章分类tab 配置数组
-  const { navList } = props
+  // const navList = props.artnavList
+  const navList = useSelector<RootState, RootState['articletab']['artnavList']>((state) => state.articletab.artnavList)
   // 浏览器滚动条位置
   const [SliderHeight, setSliderHeight] = useState<number>(0)
   // 更新浏览器滚动条位置函数
