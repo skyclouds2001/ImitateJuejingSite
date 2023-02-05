@@ -4,9 +4,9 @@
 interface Article {
   /** 文章标题 */
   title: string
-  /** 文章作者 */
+  /** 文章作者ID */
   author: string
-  /** 文章分类tab */
+  /** 文章分类tab的ID */
   labels: string[]
   /** 文章摘要，可选 */
   digest: string
