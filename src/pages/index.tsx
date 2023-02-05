@@ -32,6 +32,7 @@ export const getServerSideProps: GetServerSideProps<NavProps> = async () => {
   const res = await fetch('http://localhost:3000/api/toptab')
   const resArt = await fetch('http://localhost:3000/api/articletab')
   const data: { navList: NavItem[] } = await res.json()
+  console.log('indexdata', data)
   const dataArt: { artnavList: ArtNavItem[] } = await resArt.json()
   return { props: { navList: data.navList, artnavList: dataArt.artnavList } }
 }
