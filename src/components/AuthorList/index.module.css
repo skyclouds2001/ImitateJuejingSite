@@ -1,0 +1,92 @@
+.author-list {
+  margin-bottom: 1.3rem;
+  font-size: 1.16rem;
+  line-height: 1.29;
+  color: #333;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+}
+
+.author-header {
+  padding: 1rem 1.3rem;
+  border-bottom: 1px solid hsl(0deg 0% 59.2% / 10%);
+}
+
+.author-content {
+  padding: 0;
+  margin: 0;
+}
+
+.author-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+}
+
+.author-avatar {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 3.8rem;
+  height: 3.8rem;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-userinfo {
+  overflow: hidden;
+}
+
+.author-username {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+  overflow: hidden;
+  font-size: 1.16rem;
+  font-weight: 400;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.author-name {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.author-rank {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.33rem;
+  vertical-align: middle;
+}
+
+.author-rank img {
+  width: 35px;
+  height: 16px;
+}
+
+.author-position {
+  margin-bottom: 3px;
+  overflow: hidden;
+  font-size: 1rem;
+  color: #909090;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.author-footer {
+  padding: 1rem 0;
+  color: #007fff;
+  text-align: center;
+  border-top: 1px solid hsl(0deg 0% 59.2% / 10%);
+}
