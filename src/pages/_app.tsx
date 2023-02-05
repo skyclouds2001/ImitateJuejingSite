@@ -10,6 +10,7 @@ import 'antd/dist/reset.css'
 import store from '@/store'
 import '@/styles/globals.css'
 import { ThemeContextProvider } from '@/components/ThemeContext/ThemeContext'
+import { Layout } from '@/components/Layout/layout'
 
 dayjs.locale('zh-cn')
 
@@ -46,13 +47,15 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ConfigProvider locale={zhCN}>
-        <Ap>
-          <ThemeContextProvider>
-            <Provider store={store}>
-              <Component {...pageProps} />
-            </Provider>
-          </ThemeContextProvider>
-        </Ap>
+        <Provider store={store}>
+          <Ap>
+            <Layout>
+              <ThemeContextProvider>
+                <Component {...pageProps} />
+              </ThemeContextProvider>
+            </Layout>
+          </Ap>
+        </Provider>
       </ConfigProvider>
     </>
   )
