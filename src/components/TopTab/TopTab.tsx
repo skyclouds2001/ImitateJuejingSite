@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styles from './TopTab.module.css'
 import Image from 'next/image'
 import logo from '/public/logo.png'
@@ -7,8 +7,11 @@ import dark from '/public/dark.png'
 import { CaretDownOutlined } from '@ant-design/icons'
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/store'
+import { ThemeContext } from '../ThemeContext/ThemeContext'
 
 const TopTab: React.FC = () => {
+  // 主题 theme
+  const { setTheme } = useContext(ThemeContext)
   // 顶部tab 配置数组
   const navList = useSelector<RootState, RootState['toptab']['topnavList']>((state) => state.toptab.topnavList)
   // const { navList } = props
@@ -51,21 +54,12 @@ const TopTab: React.FC = () => {
   }
   // 黑白主题切换按钮点击事件
   const handleThemeChange = () => {
-    const btnDark = document.getElementById('dark')
-    const btnLight = document.getElementById('light')
-    if (btnDark && btnLight) {
-      // 调整为暗色主题
-      if (btnDark.className == styles.hidden) {
-        btnLight.className = styles.hidden
-        btnDark.className = ''
-        document.body.className = styles.dark
-      }
-      // 调整为亮色主题
-      else {
-        btnDark.className = styles.hidden
-        btnLight.className = ''
-        document.body.className = ''
-      }
+    if (localStorage.getItem('theme') === 'dark') {
+      setTheme('light')
+      document.body.style.backgroundColor = '#F4F5F5'
+    } else {
+      setTheme('dark')
+      document.body.style.backgroundColor = '#121212'
     }
   }
 
@@ -114,14 +108,7 @@ const TopTab: React.FC = () => {
           </div>
         </div>
         {/* 黑白主题切换 */}
-        <div className={styles.theme}>
-          <button id="dark" className={styles.hidden} onClick={handleThemeChange}>
-            <Image src={light} alt="变亮色主题" width={30} height={30}></Image>
-          </button>
-          <button id="light" onClick={handleThemeChange}>
-            <Image src={dark} alt="变暗色主题" width={30} height={30}></Image>
-          </button>
-        </div>
+        <button className={styles.theme} onClick={handleThemeChange}></button>
       </div>
     </>
   )

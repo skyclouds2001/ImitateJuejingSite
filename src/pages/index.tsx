@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import type { GetServerSideProps } from 'next'
-import { Layout } from '@/components/Layout/layout'
 import { NavProps, ArtNavItem, NavItem } from '../interface/nav'
 import { useDispatch } from 'react-redux'
 import type { AppDispatch } from '@/store'

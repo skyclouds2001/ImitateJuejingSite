@@ -9,6 +9,7 @@ import 'dayjs/locale/zh-cn'
 import 'antd/dist/reset.css'
 import store from '@/store'
 import '@/styles/globals.css'
+import { ThemeContextProvider } from '@/components/ThemeContext/ThemeContext'
 
 dayjs.locale('zh-cn')
 
@@ -46,9 +47,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       <ConfigProvider locale={zhCN}>
         <Ap>
-          <Provider store={store}>
-            <Component {...pageProps} />
-          </Provider>
+          <ThemeContextProvider>
+            <Provider store={store}>
+              <Component {...pageProps} />
+            </Provider>
+          </ThemeContextProvider>
         </Ap>
       </ConfigProvider>
     </>

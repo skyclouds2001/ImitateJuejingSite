@@ -1,10 +1,3 @@
-/* 暗色主题 */
-.dark {
-  color: white;
-  background-color: black;
-  transition: all 1s;
-}
-
 #toptabcontainer {
   position: fixed;
   left: 0;
@@ -12,8 +5,8 @@
   display: flex;
   width: 100%;
   height: 3.75rem;
-  background-color: white;
-  border-bottom: 1px solid #f1f1f1;
+  background-color: var(--topnav-background-color);
+  border-bottom: 1px solid var(--topnav-border-color);
 }
 
 .toptabcontainerfirst {
@@ -36,6 +29,7 @@
 #toptabcontainer .logo span {
   margin-left: 0.31rem;
   line-height: 1.375rem;
+  color: var(--topnav-title-color);
 }
 
 #toptabcontainer .navbig ul:first-of-type {
@@ -50,7 +44,7 @@
   height: 100%;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #515767;
+  color: var(--topnav-color);
 }
 
 #toptabcontainer .nav ul li a {
@@ -108,9 +102,10 @@
   position: absolute;
   right: 5rem;
   width: 1.875rem;
-  height: 100%;
-  padding-top: 0.9375rem;
-  background-color: red;
+  height: 1.875rem;
+  margin-top: 0.9375rem;
+  background-image: var(--topnav-theme-icon);
+  background-size: 1.875rem 1.875rem;
 }
 
 /* 红色备注 */

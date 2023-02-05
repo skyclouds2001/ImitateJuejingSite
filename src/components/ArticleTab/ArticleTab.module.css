@@ -5,7 +5,7 @@
   z-index: 9999;
   width: 100%;
   height: 2.875rem;
-  background-color: white;
+  background-color: var(--arttab-background-color);
 }
 
 .artnavcontainerscroll {
@@ -36,7 +36,7 @@
   padding: 0 0.75rem;
   font-size: 0.875rem;
   line-height: 2.875rem;
-  color: rgb(144 144 144);
+  color: var(--arttab-color);
 }
 
 .navul .selectli {
