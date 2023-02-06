@@ -8,6 +8,10 @@ export interface ArtNavItem {
   label: string
 }
 export interface NavProps {
-  navList?: NavItem[]
+  navList: NavItem[]
   artnavList?: ArtNavItem[]
+}
+export interface ArtNavProps {
+  artnavList: ArtNavItem[]
+  selectKey: string
 }

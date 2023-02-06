@@ -3,7 +3,7 @@ import { ArtNavItem } from '@/interface/nav'
 import axios from 'axios'
 import { CMSDOMAIN } from '@/lib/http'
 
-const handler = (req: NextApiRequest, res: NextApiResponse<{ artnavList: ArtNavItem[] }>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<{ artnavList: ArtNavItem[]; selectkey: string }>) => {
   // res.status(200).json({
   //   // 首页nav配置数据
   //   artnavList: [
@@ -66,6 +66,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<{ artnavList: ArtNavI
       })
       res.status(200).json({
         artnavList: artnavList,
+        selectkey: 'recommended',
       })
     })
     .catch((error) => console.log(error))
