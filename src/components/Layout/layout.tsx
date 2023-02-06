@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import TopTab from '@/components/TopTab/TopTab'
-import { NavProps } from '@/interface/nav'
 
-export const Layout: FC<NavProps & { children: JSX.Element }> = ({ children }) => {
+export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
   return (
     <div>
       {/* 顶部 nav */}

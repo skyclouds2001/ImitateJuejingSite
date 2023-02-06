@@ -13,6 +13,7 @@
 /* 广告图片 */
 .advimg {
   position: relative;
+  width: 15rem;
   margin-bottom: 0.94rem;
 }
 
