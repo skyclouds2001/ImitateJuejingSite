@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import { ConfigProvider, App as Ap } from 'antd'
@@ -49,11 +49,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <ConfigProvider locale={zhCN}>
         <Provider store={store}>
           <Ap>
-            <Layout>
-              <ThemeContextProvider>
+            <ThemeContextProvider>
+              <Layout>
                 <Component {...pageProps} />
-              </ThemeContextProvider>
-            </Layout>
+              </Layout>
+            </ThemeContextProvider>
           </Ap>
         </Provider>
       </ConfigProvider>

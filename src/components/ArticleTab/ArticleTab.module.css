@@ -2,7 +2,7 @@
 #container {
   position: fixed;
   left: 0;
-  z-index: 9999;
+  z-index: 20;
   width: 100%;
   height: 2.875rem;
   background-color: var(--arttab-background-color);

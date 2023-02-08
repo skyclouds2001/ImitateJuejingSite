@@ -87,6 +87,7 @@
   position: absolute;
   top: 3.125rem;
   left: -2.93rem;
+  z-index: 99999;
   display: flex;
   flex-direction: column;
   align-items: center;

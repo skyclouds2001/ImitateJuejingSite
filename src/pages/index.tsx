@@ -24,7 +24,7 @@ const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & Adv
   return (
     <>
       {/* 顶部 nav */}
-      <TopTab />
+      {/* <TopTab /> */}
       {/* 文章分类 nav */}
       <ArticleTab />
       {/* 小册广告位 */}

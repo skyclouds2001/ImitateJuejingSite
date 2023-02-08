@@ -2,18 +2,17 @@ import React, { useState, useEffect, useContext } from 'react'
 import styles from './TopTab.module.css'
 import Image from 'next/image'
 import logo from '/public/logo.png'
-import light from '/public/light.png'
-import dark from '/public/dark.png'
 import { CaretDownOutlined } from '@ant-design/icons'
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/store'
 import { ThemeContext } from '../ThemeContext/ThemeContext'
+import { NavProps } from '@/interface/nav'
 
-const TopTab: React.FC = () => {
+const TopTab: React.FC<NavProps> = ({ navList }) => {
   // 主题 theme
   const { setTheme } = useContext(ThemeContext)
   // 顶部tab 配置数组
-  const navList = useSelector<RootState, RootState['toptab']['topnavList']>((state) => state.toptab.topnavList)
+  // const navList = useSelector<RootState, RootState['toptab']['topnavList']>((state) => state.toptab.topnavList)
   // const { navList } = props
   // 浏览器窗口宽度
   const [Browsewidth, setBrowsWidth] = useState<number>(1400)
@@ -92,7 +91,7 @@ const TopTab: React.FC = () => {
           {/* 页面不够宽的兼容-nav导航栏 */}
           <div className={(styles.hidden, Browsewidth >= 1140 ? styles.hidden : styles.navsmall)}>
             <button className={styles.navfirst} onClick={handleDropdown}>
-              {navList && navList[0].label}
+              {navList[0].label}
               <CaretDownOutlined />
             </button>
             <ul className={styles.hidden}>
