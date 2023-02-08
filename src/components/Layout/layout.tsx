@@ -1,8 +1,7 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import TopTab from '@/components/TopTab/TopTab'
-import { NavItem, NavProps } from '@/interface/nav'
+import { NavItem } from '@/interface/nav'
 import { CMSDOMAIN } from '@/lib/http'
-import axios from 'axios'
 import useSWR from 'swr'
 
 export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
@@ -29,7 +28,6 @@ export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
   return (
     <div>
       {/* 顶部 nav */}
-      {/* <TopTab /> */}
       <TopTab navList={navList} />
       <main>{children}</main>
     </div>

@@ -3,8 +3,6 @@ import styles from './TopTab.module.css'
 import Image from 'next/image'
 import logo from '/public/logo.png'
 import { CaretDownOutlined } from '@ant-design/icons'
-import { useSelector } from 'react-redux'
-import type { RootState } from '@/store'
 import { ThemeContext } from '../ThemeContext/ThemeContext'
 import { NavProps } from '@/interface/nav'
 
