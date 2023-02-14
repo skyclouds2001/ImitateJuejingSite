@@ -95,12 +95,15 @@
   background-color: #fff;
 }
 
-.like {
+.like,
+.read {
   margin-top: 4px;
   margin-bottom: 4px;
+  font-size: 14px;
 }
 
-.read,
+.reads,
 .likes {
-  margin-left: 2px;
+  margin-left: 6px;
+  font-size: 14px;
 }

@@ -14,27 +14,11 @@ const RelatedArticle = () => {
             </div>
           </a>
           <a className={styles.item} href="http:/baidu.com">
-            <div className={styles.itemtitle}>常用Git命令总结</div>
-            <div className={styles.metabox}>
-              <div className={styles.metalike}>128点赞</div>
+            <div className={styles.itemTitle}>常用Git命令总结</div>
+            <div className={styles.metaBox}>
+              <div className={styles.metaLike}>128点赞</div>
               <div className={styles.space}>&nbsp;·&nbsp;</div>
-              <div className={styles.metacomment}>23评论</div>
-            </div>
-          </a>{' '}
-          <a className={styles.item} href="http:/baidu.com">
-            <div className={styles.itemtitle}>常用Git命令总结</div>
-            <div className={styles.metabox}>
-              <div className={styles.metalike}>128点赞</div>
-              <div className={styles.space}>&nbsp;·&nbsp;</div>
-              <div className={styles.metacomment}>23评论</div>
-            </div>
-          </a>{' '}
-          <a className={styles.item} href="http:/baidu.com">
-            <div className={styles.itemtitle}>常用Git命令总结</div>
-            <div className={styles.metabox}>
-              <div className={styles.metalike}>128点赞</div>
-              <div className={styles.space}>&nbsp;·&nbsp;</div>
-              <div className={styles.metacomment}>23评论</div>
+              <div className={styles.metaComment}>23评论</div>
             </div>
           </a>
         </div>

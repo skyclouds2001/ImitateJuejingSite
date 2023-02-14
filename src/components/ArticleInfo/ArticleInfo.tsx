@@ -1,5 +1,6 @@
 import instance from '@/lib/http'
 import { useEffect } from 'react'
+import { EyeFilled, LikeFilled } from '@ant-design/icons'
 import styles from './ArticleInfo.module.css'
 const ArticleInfo = () => {
   // useEffect(() => {
@@ -36,10 +37,12 @@ const ArticleInfo = () => {
         {/* 获得点赞，文章被阅读 */}
         <div className={styles.info}>
           <p className={styles.like}>
-            获得点赞<span className={styles.likes}>10,395</span>
+            <EyeFilled />
+            <span className={styles.likes}>获得点赞</span>&nbsp;10,395
           </p>
           <p className={styles.read}>
-            文章被阅读<span className={styles.read}>331,384</span>
+            <LikeFilled />
+            <span className={styles.reads}>文章被阅读</span>&nbsp;331,384
           </p>
         </div>
       </div>

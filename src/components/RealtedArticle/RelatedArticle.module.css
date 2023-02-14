@@ -24,18 +24,18 @@
   cursor: pointer;
 }
 
-.metabox {
+.meta-box {
   margin-top: 4px;
   font-size: 16px;
 }
 
-.itemtitle {
+.item-title {
   font-size: 16px;
   color: #252933;
 }
 
-.metalike,
-.metacomment,
+.meta-like,
+.meta-comment,
 .space {
   display: inline-block;
   font-size: 16px;
