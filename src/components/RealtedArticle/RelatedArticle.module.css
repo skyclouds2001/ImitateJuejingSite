@@ -1,0 +1,45 @@
+.box {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+}
+
+/* 相关文章 */
+.title {
+  padding: 1.333rem 0;
+  margin: 0 1.667rem;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2rem;
+  color: #1d2129;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+/* 每一个div */
+.item {
+  display: block;
+  padding: 0.667rem 1.667rem;
+  color: #909090;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.metabox {
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+.itemtitle {
+  font-size: 16px;
+  color: #252933;
+}
+
+.metalike,
+.metacomment,
+.space {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #8a919f;
+}
