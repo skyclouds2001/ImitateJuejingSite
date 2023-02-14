@@ -6,8 +6,8 @@ import Hello from '@/components/hello'
 import { increase, decrease } from '@/store'
 import type { RootState, AppDispatch } from '@/store'
 import styles from './index.module.css'
-import RelatedArticle from '@/components/RealtedArticle/RelatedArticle'
-import ArticleInfo from '@/components/ArticleInfo/ArticleInfo'
+import RelatedArticle from '@/components/RealtedArticle/index'
+import AuthorInfo from '@/components/AuthorInfo/index'
 interface HomeProps {
   name: string
 }
@@ -34,7 +34,8 @@ const Home: React.FC<HomeProps> = (props) => {
         <button onClick={sub}>-</button>
         <Hello />
         <RelatedArticle></RelatedArticle>
-        <ArticleInfo></ArticleInfo>
+        <hr />
+        <AuthorInfo></AuthorInfo>
         <style jsx>{`
           div {
             color: #111;

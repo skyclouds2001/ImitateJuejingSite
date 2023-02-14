@@ -24,21 +24,27 @@
   cursor: pointer;
 }
 
-.meta-box {
+.metabox {
+  display: flex;
+  justify-content: left;
   margin-top: 4px;
   font-size: 16px;
 }
 
-.item-title {
+.itemtitle {
   font-size: 16px;
   color: #252933;
 }
 
-.meta-like,
-.meta-comment,
+.itemtitle:hover {
+  color: rgb(17 160 245);
+}
+
+.metalike,
+.metacomment,
 .space {
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 22px;
   color: #8a919f;
