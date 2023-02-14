@@ -6,6 +6,7 @@ import Hello from '@/components/hello'
 import { increase, decrease } from '@/store'
 import type { RootState, AppDispatch } from '@/store'
 import styles from './index.module.css'
+import ArticleInfo from '@/components/ArticleInfo/ArticleInfo'
 
 interface HomeProps {
   name: string
@@ -31,6 +32,8 @@ const Home: React.FC<HomeProps> = (props) => {
         <div className={styles.value}>{value}</div>
         <button onClick={add}>+</button>
         <button onClick={sub}>-</button>
+        <ArticleInfo></ArticleInfo>
+        111
         <Hello />
         <style jsx>{`
           div {
