@@ -1,0 +1,44 @@
+/* div容器 */
+#container {
+  position: fixed;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 2.875rem;
+  background-color: var(--arttab-background-color);
+}
+
+.artnavcontainerscroll {
+  top: 0;
+  transition: all 0.3s linear;
+}
+
+.artnavcontainer {
+  top: 3.75rem;
+  transition: all 0.3s linear;
+}
+
+/* nav导航栏 */
+.navul {
+  display: flex;
+  max-width: 60rem;
+  height: 2.875rem;
+  margin: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.navul li {
+  display: inline-block;
+  width: auto;
+  height: 2.875rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 2.875rem;
+  color: var(--arttab-color);
+}
+
+.navul .selectli {
+  color: rgb(0 127 255);
+}

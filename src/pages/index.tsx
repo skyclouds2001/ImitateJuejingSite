@@ -1,55 +1,46 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
 import type { GetServerSideProps } from 'next'
-import { useSelector, useDispatch } from 'react-redux'
-import Hello from '@/components/hello'
-import { increase, decrease } from '@/store'
-import type { RootState, AppDispatch } from '@/store'
-import styles from './index.module.css'
+import { NavProps, ArtNavItem, NavItem, ArtNavProps } from '../interface/nav'
+import { AdvProps } from '../interface/adv'
+import { useDispatch } from 'react-redux'
+import type { AppDispatch } from '@/store'
+import { changeTopNavList, changeArticleNavList, changeAdvList, changeArticleselectkey } from '@/store'
+import TopTab from '@/components/TopTab/TopTab'
+import ArticleTab from '@/components/ArticleTab/ArticleTab'
+import BookletAdv from '@/components/BookletAdv/BookletAdv'
 
-interface HomeProps {
-  name: string
-}
-
-const Home: React.FC<HomeProps> = (props) => {
-  const value = useSelector<RootState, RootState['hello']['value']>((state) => state.hello.value)
+const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & AdvProps & ArtNavProps) => {
   const dispatch = useDispatch<AppDispatch>()
-
-  const add = () => {
-    dispatch(increase())
-  }
-
-  const sub = () => {
-    dispatch(decrease())
-  }
-
+  useEffect(() => {
+    // 更新 store 中的 topnav
+    if (props.navList) dispatch(changeTopNavList(props.navList))
+    // 更新 store 中的 artnav
+    if (props.artnavList) dispatch(changeArticleNavList(props.artnavList))
+    // 更新 store 中的 advlist
+    if (props.advList) dispatch(changeAdvList(props.advList))
+    // 更新 store 中的 advlist
+    if (props.selectKey) dispatch(changeArticleselectkey(props.selectKey))
+  }, [dispatch, props])
   return (
     <>
-      <main className="w-screen h-screen flex justify-center items-center flex-col">
-        <h1 className={styles.title}>next.js template</h1>
-        <div className={styles.name}>{props.name}</div>
-        <div className={styles.value}>{value}</div>
-        <button onClick={add}>+</button>
-        <button onClick={sub}>-</button>
-        <Hello />
-        <style jsx>{`
-          div {
-            color: #111;
-          }
-        `}</style>
-      </main>
+      {/* 顶部 nav */}
+      {/* <TopTab /> */}
+      {/* 文章分类 nav */}
+      <ArticleTab />
+      {/* 小册广告位 */}
+      <BookletAdv />
     </>
   )
 }
 
-Home.propTypes = {
-  name: PropTypes.string.isRequired,
-}
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const res = await fetch('http://localhost:3000/api/hello')
-  const data: { name: string } = await res.json()
-  return { props: { name: data.name } }
+export const getServerSideProps: GetServerSideProps<NavProps> = async () => {
+  const res = await fetch('http://localhost:3000/api/toptab')
+  const resArt = await fetch('http://localhost:3000/api/articletab')
+  const resAdv = await fetch('http://localhost:3000/api/adv')
+  const data: { navList: NavItem[] } = await res.json()
+  const dataArt: { artnavList: ArtNavItem[]; selectkey: string } = await resArt.json()
+  const dataAdv: { advList: AdvProps } = await resAdv.json()
+  return { props: { navList: data.navList, artnavList: dataArt.artnavList, selectKey: dataArt.selectkey, advList: dataAdv.advList } }
 }
 
 export default Home

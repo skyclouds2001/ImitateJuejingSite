@@ -17,3 +17,5 @@ instance.interceptors.response.use(
 )
 
 export default instance
+// cms地址
+export const CMSDOMAIN = 'http://127.0.0.1:8080'

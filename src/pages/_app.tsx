@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import { ConfigProvider, App as Ap } from 'antd'
@@ -9,6 +9,8 @@ import 'dayjs/locale/zh-cn'
 import 'antd/dist/reset.css'
 import store from '@/store'
 import '@/styles/globals.css'
+import { ThemeContextProvider } from '@/components/ThemeContext/ThemeContext'
+import { Layout } from '@/components/Layout/layout'
 
 dayjs.locale('zh-cn')
 
@@ -49,11 +51,15 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ConfigProvider locale={zhCN}>
-        <Ap>
-          <Provider store={store}>
-            <Component {...pageProps} />
-          </Provider>
-        </Ap>
+        <Provider store={store}>
+          <Ap>
+            <ThemeContextProvider>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </ThemeContextProvider>
+          </Ap>
+        </Provider>
       </ConfigProvider>
     </>
   )
