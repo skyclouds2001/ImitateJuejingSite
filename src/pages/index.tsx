@@ -8,6 +8,7 @@ import { changeTopNavList, changeArticleNavList, changeAdvList, changeArticlesel
 import TopTab from '@/components/TopTab/TopTab'
 import ArticleTab from '@/components/ArticleTab/ArticleTab'
 import BookletAdv from '@/components/BookletAdv/BookletAdv'
+import SideBar from '@/components/SideBar'
 
 const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & AdvProps & ArtNavProps) => {
   const dispatch = useDispatch<AppDispatch>()
@@ -27,8 +28,9 @@ const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & Adv
       {/* <TopTab /> */}
       {/* 文章分类 nav */}
       <ArticleTab />
-      {/* 小册广告位 */}
-      <BookletAdv />
+      {/* 文章模块 */}
+      {/* 侧边栏 */}
+      <SideBar />
     </>
   )
 }
