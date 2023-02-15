@@ -5,7 +5,7 @@ import { CMSDOMAIN } from '@/lib/http'
 import useSWR from 'swr'
 
 export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
-  const [navList, setNavList] = useState<NavItem[]>([{}])
+  const [navList, setNavList] = useState<NavItem[]>([])
   const fetcher = (url: any) => {
     return fetch(url)
       .then((res) => res.json())
