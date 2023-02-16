@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { UserOutlined } from '@ant-design/icons'
 import { useAuthor } from '@/api'
 import { type User } from '@/models'
 import { getAuthorWriterLevelImage } from '@/util'
@@ -12,7 +13,7 @@ const AuthorItem: React.FC<{ author: User }> = (props) => {
     <>
       <section className={styles.item}>
         <a href={`/user/${author.id}`} target="_blank" rel="noreferrer">
-          <Image className={styles.avatar} src={author.profile} alt={`${author.username}的头像`} loading="lazy" title="用户头像" width={46} height={46} />
+          {author.profile ? <Image className={styles.avatar} src={author.profile} alt={`${author.username}的头像`} loading="lazy" title="用户头像" width={46} height={46} /> : <UserOutlined className={styles.avatar} />}
           <div className={styles.userinfo}>
             <a href={`/user/${author.id}`} target="_blank" rel="noreferrer" className={styles.username}>
               <span className={styles.name}>{author.username}</span>
