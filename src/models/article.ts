@@ -14,10 +14,12 @@ interface Article {
   content: string
   /** 文章发表时间 */
   createTime: string
-  /** 阅读数，用于文章排序 */
+  /** 阅读数 */
   readCnt: number
-  /** 图片；文章封面，可选 */
-  cover: string
+  /** 文章封面图片 | 可选 */
+  cover?: string
+  /** 文章评论 */
+  comments: number[]
 }
 
 export default Article
