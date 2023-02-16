@@ -25,14 +25,16 @@ const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & Adv
 
   return (
     <>
-      {/* 文章分类 nav */}
-      <ArticleTab />
-      {/* 页面主体内容 */}
       <div className={styles.container}>
-        {/* 文章列表 */}
-        <ArticleList />
-        {/* 侧边栏 */}
-        <SideBar />
+        {/* 文章分类 nav */}
+        <ArticleTab />
+        {/* 页面主体内容 */}
+        <div className={styles.content}>
+          {/* 文章列表 */}
+          <ArticleList />
+          {/* 侧边栏 */}
+          <SideBar />
+        </div>
       </div>
     </>
   )

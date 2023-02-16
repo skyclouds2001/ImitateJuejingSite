@@ -1,4 +1,8 @@
 .container {
+  margin-top: 62px;
+}
+
+.content {
   position: relative;
-  margin-top: 0.33rem;
+  margin-top: 4px;
 }
