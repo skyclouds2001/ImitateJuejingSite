@@ -1,7 +1,7 @@
 /**
  * 文章数据结构
  */
-interface Article {
+export interface Article {
   /** 文章标题 */
   title: string
   /** 文章作者ID */
@@ -21,5 +21,3 @@ interface Article {
   /** 文章评论 */
   comments: number[]
 }
-
-export default Article
