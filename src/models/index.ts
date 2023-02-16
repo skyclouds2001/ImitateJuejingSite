@@ -1,3 +1,7 @@
 export * from './user'
 
+export * from './avatar'
+
+export * from './image'
+
 export * from './article'
