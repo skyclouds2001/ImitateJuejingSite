@@ -21,13 +21,6 @@
 .item {
   display: flex;
   align-items: center;
-  padding: 10px 16px;
-  cursor: pointer;
-}
-
-.item > a {
-  display: flex;
-  align-items: center;
   padding: 12px 16px;
   cursor: pointer;
 }

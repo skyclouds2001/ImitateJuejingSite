@@ -9,5 +9,5 @@ import { CMS_DOMAIN } from '@/config'
  * @returns 图片 URL
  */
 export const customNextImageLoader: ImageLoader = (props) => {
-  return CMS_DOMAIN + props.src
+  return CMS_DOMAIN + props.src + `?w=${props.width}&q=${props.quality}`
 }
