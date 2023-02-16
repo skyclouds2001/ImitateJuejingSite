@@ -9,11 +9,17 @@ const ArticleListItem: React.FC<{ article?: Article }> = (props) => {
         <div className={styles.meta}>
           <div className={styles.author}>桃小瑞</div>
           <div className={styles.date}>1月前</div>
-          <ul className={styles.tags}>
-            <li className={styles.tag}>前端</li>
-            <li className={styles.tag}>JavaScript</li>
-            <li className={styles.tag}>掘金·日新计划</li>
-          </ul>
+          <div className={styles.tags}>
+            <a href="/tag/前端" target="_blank" className={styles.tag}>
+              前端
+            </a>
+            <a href="/tag/JavaScript" target="_blank" className={styles.tag}>
+              JavaScript
+            </a>
+            <a href="/tag/掘金·日新计划" target="_blank" className={styles.tag}>
+              掘金·日新计划
+            </a>
+          </div>
         </div>
         <div className={styles.content}>
           <div className={styles.main}>
@@ -27,10 +33,19 @@ const ArticleListItem: React.FC<{ article?: Article }> = (props) => {
                 我们现在在请求接口的过程中，已经习惯了async/await的写法，已经逐渐的代替了promise。。。
               </a>
             </div>
-            <ul>
-              <li>4310</li>
-              <li>34</li>
-              <li>35</li>
+            <ul className={styles.actions}>
+              <li className={[styles.action, styles.view].join(' ')}>
+                <i></i>
+                <span>4310</span>
+              </li>
+              <li className={[styles.action, styles.like].join(' ')}>
+                <i></i>
+                <span>43</span>
+              </li>
+              <li className={[styles.action, styles.comment].join(' ')}>
+                <i></i>
+                <span>23</span>
+              </li>
             </ul>
           </div>
           <img className={styles.img} src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a8e18532b6843e2bb10a1f1cd3d8581~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp" alt="别在让你的 await Streaking 了" loading="lazy" />

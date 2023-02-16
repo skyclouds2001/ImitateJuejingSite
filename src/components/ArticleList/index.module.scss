@@ -22,7 +22,7 @@
     .list {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       line-height: 1;
 
       .item {
@@ -31,6 +31,7 @@
         font-size: 14px;
         cursor: pointer;
         border-right: 1px solid hsl(0deg 0% 59.2% / 20%);
+        color: #909090;
 
         &.active {
           color: #007fff;
