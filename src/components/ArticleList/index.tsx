@@ -3,11 +3,7 @@ import Image from 'next/image'
 import type { Article } from '@/models'
 import styles from './index.module.css'
 
-interface ArticleListProps {
-  articles: Article[]
-}
-
-const ArticleList: React.FC<ArticleListProps> = (props) => {
+const ArticleList: React.FC = () => {
   return (
     <>
       <div className={styles.articleList}>

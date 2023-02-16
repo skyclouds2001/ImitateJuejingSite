@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import type { GetServerSideProps } from 'next'
-import { NavProps, ArtNavItem, NavItem, ArtNavProps } from '../interface/nav'
-import { AdvProps } from '../interface/adv'
 import { useDispatch } from 'react-redux'
-import type { AppDispatch } from '@/store'
-import { changeTopNavList, changeArticleNavList, changeAdvList, changeArticleselectkey } from '@/store'
-import TopTab from '@/components/TopTab/TopTab'
+import ArticleList from '@/components/ArticleList'
 import ArticleTab from '@/components/ArticleTab/ArticleTab'
-import BookletAdv from '@/components/BookletAdv/BookletAdv'
 import SideBar from '@/components/SideBar'
+import type { AdvProps } from '@/interface/adv'
+import type { NavProps, ArtNavItem, NavItem, ArtNavProps } from '@/interface/nav'
+import { changeTopNavList, changeArticleNavList, changeAdvList, changeArticleselectkey, type AppDispatch } from '@/store'
+import styles from './index.module.css'
 
 const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & AdvProps & ArtNavProps) => {
   const dispatch = useDispatch<AppDispatch>()
+
   useEffect(() => {
     // 更新 store 中的 topnav
     if (props.navList) dispatch(changeTopNavList(props.navList))
@@ -22,15 +22,18 @@ const Home: React.FC<NavProps & AdvProps & ArtNavProps> = (props: NavProps & Adv
     // 更新 store 中的 advlist
     if (props.selectKey) dispatch(changeArticleselectkey(props.selectKey))
   }, [dispatch, props])
+
   return (
     <>
-      {/* 顶部 nav */}
-      {/* <TopTab /> */}
       {/* 文章分类 nav */}
       <ArticleTab />
-      {/* 文章模块 */}
-      {/* 侧边栏 */}
-      <SideBar />
+      {/* 页面主体内容 */}
+      <div className={styles.container}>
+        {/* 文章列表 */}
+        <ArticleList />
+        {/* 侧边栏 */}
+        <SideBar />
+      </div>
     </>
   )
 }
