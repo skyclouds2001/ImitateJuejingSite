@@ -1,8 +1,9 @@
 import { FC, useState } from 'react'
+import useSWR from 'swr'
 import TopTab from '@/components/TopTab/TopTab'
 import { NavItem } from '@/interface/nav'
 import { CMSDOMAIN } from '@/lib/http'
-import useSWR from 'swr'
+import styles from './index.module.css'
 
 export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
   const [navList, setNavList] = useState<NavItem[]>([])
@@ -29,7 +30,7 @@ export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
     <div>
       {/* 顶部 nav */}
       <TopTab navList={navList} />
-      <main>{children}</main>
+      <main className={styles.container}>{children}</main>
     </div>
   )
 }
