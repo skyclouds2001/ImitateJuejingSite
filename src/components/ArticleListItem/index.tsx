@@ -6,7 +6,6 @@ import styles from './index.module.scss'
 
 const ArticleListItem: React.FC<{ article: Article }> = (props) => {
   const { article } = props
-  console.log(article)
 
   return (
     <>

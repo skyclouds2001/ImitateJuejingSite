@@ -10,7 +10,7 @@ interface Article {
   /** 文章作者 */
   author: { data: OmitId<User> }
   /** 文章评论 ID todo */
-  comments: number[]
+  comments: { data: number[] }
   /** 文章内容 */
   content: string
   /** 文章封面图片 | 可选 */
@@ -26,7 +26,7 @@ interface Article {
   /** 文章的标签 */
   labels: { data: OmitId<Label>[] }
   /** 给文章点赞用户 ID todo */
-  likeUsers: number[]
+  likeUsers: { data: number[] }
   /** 文章发布时间 */
   publishedAt: string
   /** 阅读数 */
