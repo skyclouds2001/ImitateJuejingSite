@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ArtNavItem } from '@/interface/nav'
 import axios from 'axios'
-import { CMSDOMAIN } from '@/lib/http'
+import { CMS_DOMAIN } from '@/config'
 
 const handler = (req: NextApiRequest, res: NextApiResponse<{ artnavList: ArtNavItem[]; selectkey: string }>) => {
   // res.status(200).json({
@@ -51,7 +51,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<{ artnavList: ArtNavI
   // })
 
   axios
-    .get(`${CMSDOMAIN}/api/article-types`)
+    .get(`${CMS_DOMAIN}/api/article-types`)
     .then((result) => {
       // 获取的数据
       // eslint-disable-next-line promise/always-return

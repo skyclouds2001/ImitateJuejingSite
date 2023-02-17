@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import useSWR from 'swr'
 import TopTab from '@/components/TopTab/TopTab'
 import { NavItem } from '@/interface/nav'
-import { CMSDOMAIN } from '@/lib/http'
+import { CMS_DOMAIN } from '@/config'
 import styles from './index.module.css'
 
 export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
@@ -24,7 +24,7 @@ export const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
         return setNavList(navList)
       })
   }
-  useSWR(`${CMSDOMAIN}/api/top-tabs`, fetcher)
+  useSWR(`${CMS_DOMAIN}/api/top-tabs`, fetcher)
 
   return (
     <div>

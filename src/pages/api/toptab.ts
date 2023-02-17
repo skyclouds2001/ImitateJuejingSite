@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { NavItem } from '../../interface/nav'
-import { CMSDOMAIN } from '@/lib/http'
+import { NavItem } from '@/interface/nav'
+import { CMS_DOMAIN } from '@/config'
 import axios from 'axios'
 
 const handler = (req: NextApiRequest, res: NextApiResponse<{ navList: NavItem[] }>) => {
@@ -39,7 +39,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<{ navList: NavItem[] 
   //   ],
   // })
   axios
-    .get(`${CMSDOMAIN}/api/top-tabs`)
+    .get(`${CMS_DOMAIN}/api/top-tabs`)
     .then((result) => {
       // 获取的数据
       // eslint-disable-next-line promise/always-return
