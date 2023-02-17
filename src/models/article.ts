@@ -1,20 +1,23 @@
+import type { User } from './user'
+import type { Cover } from './cover'
+
 /**
  * 文章数据结构
  */
 export interface Article {
-  /** 文章作者 ID todo */
-  author: string
+  /** 文章作者 */
+  author: { data: OmitId<User> }
   /** 文章评论 todo */
   comments: number[]
   /** 文章内容 */
   content: string
-  /** 文章封面图片 | 可选 todo */
-  cover: string | null
+  /** 文章封面图片 | 可选 */
+  cover: { data: OmitId<Cover> } | null
   /** 文章创建时间 */
   createdAt: string
   /** 文章发表时间 */
   createTime: string
-  /** 文章摘要，可选 */
+  /** 文章摘要 | 可选 */
   digest: string
   /** 文章 ID */
   id: number
