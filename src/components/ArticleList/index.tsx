@@ -13,7 +13,7 @@ const ArticleList: React.FC = () => {
   const [currentNav, setCurrentNav] = useState(1)
 
   /**
-   * Nav 点击事件 - 切换文章 Tab 事件
+   * 切换文章 Tab
    *
    * @param e 鼠标点击事件
    */
@@ -49,11 +49,7 @@ const ArticleList: React.FC = () => {
             </ul>
           </nav>
         </header>
-        <article className={styles.container}>
-          {data.data.map((v) => (
-            <ArticleListItem key={v.id} article={v.attributes} />
-          ))}
-        </article>
+        <article className={styles.container}>{data ? data.data.map((v) => <ArticleListItem key={v.id} article={Object.assign(v.attributes, { id: v.id })} />) : ''}</article>
       </div>
     </>
   )

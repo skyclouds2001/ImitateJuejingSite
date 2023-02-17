@@ -16,6 +16,8 @@ export interface Article {
   createTime: string
   /** 文章摘要，可选 */
   digest: string
+  /** 文章 ID */
+  id: number
   /** 文章的标签 ID todo */
   labels: number[]
   /** 给文章点赞用户 ID todo */
