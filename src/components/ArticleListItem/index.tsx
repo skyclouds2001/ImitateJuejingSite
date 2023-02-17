@@ -1,54 +1,55 @@
 import React from 'react'
+import Image from 'next/image'
 import type { Article } from '@/models'
+import { customNextImageLoader } from '@/util'
 import styles from './index.module.scss'
 
-const ArticleListItem: React.FC<{ article?: Article }> = (props) => {
+const ArticleListItem: React.FC<{ article: Article }> = (props) => {
+  const { article } = props
+  console.log(article)
+
   return (
     <>
       <section className={styles.item}>
         <div className={styles.meta}>
-          <div className={styles.author}>桃小瑞</div>
-          <div className={styles.date}>1月前</div>
+          <div className={styles.author}>{article.author.data.attributes.username}</div>
+          <div className={styles.date}>1月前 {/* todo */}</div>
           <div className={styles.tags}>
-            <a href="/tag/前端" target="_blank" className={styles.tag}>
-              前端
-            </a>
-            <a href="/tag/JavaScript" target="_blank" className={styles.tag}>
-              JavaScript
-            </a>
-            <a href="/tag/掘金·日新计划" target="_blank" className={styles.tag}>
-              掘金·日新计划
-            </a>
+            {article.labels.data.map((v) => (
+              <a key={v.id} href={`/tag/${v.attributes.label}`} target="_blank" rel="noreferrer" className={styles.tag}>
+                {v.attributes.label}
+              </a>
+            ))}
           </div>
         </div>
         <div className={styles.content}>
           <div className={styles.main}>
             <div className={styles.title}>
-              <a href="/post/7176554352155295800" target="_blank">
-                别在让你的 await Streaking 了
+              <a href={`/post/${article.id}`} target="_blank" rel="noreferrer">
+                {article.title}
               </a>
             </div>
             <div className={styles.desc}>
-              <a href="/post/7176554352155295800" target="_blank">
-                我们现在在请求接口的过程中，已经习惯了async/await的写法，已经逐渐的代替了promise。。。
+              <a href={`/post/${article.id}`} target="_blank" rel="noreferrer">
+                {article.digest}
               </a>
             </div>
             <ul className={styles.actions}>
               <li className={[styles.action, styles.view].join(' ')}>
                 <i></i>
-                <span>4310</span>
+                <span>{article.readCnt}</span>
               </li>
               <li className={[styles.action, styles.like].join(' ')}>
                 <i></i>
-                <span>43</span>
+                <span>{article.likeUsers.data.length}</span>
               </li>
               <li className={[styles.action, styles.comment].join(' ')}>
                 <i></i>
-                <span>23</span>
+                <span>{article.comments.data.length}</span>
               </li>
             </ul>
           </div>
-          <img className={styles.img} src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a8e18532b6843e2bb10a1f1cd3d8581~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp" alt="别在让你的 await Streaking 了" loading="lazy" />
+          <Image className={styles.img} src={article.cover?.data?.attributes.url ?? ''} loader={customNextImageLoader} alt={article.title} loading="lazy" width={120} height={80} />
         </div>
         <div className={styles.dislike}>
           <svg data-v-18e57856="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon-close">
