@@ -1,6 +1,7 @@
 import type { User } from './user'
 import type { Cover } from './cover'
 import type { Label } from './label'
+import type { Type } from './type'
 
 /**
  * 文章数据结构
@@ -32,8 +33,8 @@ export interface Article {
   readCnt: number
   /** 文章标题 */
   title: string
-  /** 文章分类 tab ID todo */
-  type: string
+  /** 文章分类 */
+  type: { data: OmitId<Type> }
   /** 文章更新时间 */
   updatedAt: string
 }

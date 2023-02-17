@@ -6,8 +6,10 @@ export * from './image'
 
 export * from './article'
 
-export * from './cover'
-
 export * from './pagination'
 
+export * from './cover'
+
 export * from './label'
+
+export * from './type'
