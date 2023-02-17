@@ -1,16 +1,5 @@
 import type Cover from './cover'
 
-export interface AdvItem {
-  key: number
-  title: string
-  src: string
-  show: boolean
-}
-
-export interface AdvProps {
-  advList: AdvItem[]
-}
-
 /**
  * 广告数据结构
  */
