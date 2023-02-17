@@ -13,3 +13,5 @@ export type { default as Cover } from './cover'
 export type { default as Label } from './label'
 
 export type { default as Type } from './type'
+
+export type { default as Advertisement } from './advertisement'
