@@ -1,7 +1,7 @@
 /**
  * 文章标签数据结构
  */
-export interface Label {
+interface Label {
   /** 标签 ID */
   id: number
   /** 标签名称 */
@@ -13,3 +13,5 @@ export interface Label {
   /** 标签更新时间戳 */
   updatedAt: string
 }
+
+export default Label

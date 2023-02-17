@@ -1,9 +1,9 @@
-import type { Avatar } from './avatar'
+import type Avatar from './avatar'
 
 /**
  * 用户数据结构
  */
-export interface User {
+interface User {
   /** 用户 ID */
   id: number
   /** 用户名 */
@@ -31,3 +31,5 @@ export interface User {
   /** 用户点赞过的评论 ID todo */
   likeComments: number[]
 }
+
+export default User

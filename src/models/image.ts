@@ -1,7 +1,7 @@
 /**
  * 图片数据结构
  */
-export interface Image {
+interface Image {
   /** 图片文件后缀名 */
   ext: string
   /** 图片 hash 戳 */
@@ -20,3 +20,5 @@ export interface Image {
   /** 图片宽度 */
   width: number
 }
+
+export default Image

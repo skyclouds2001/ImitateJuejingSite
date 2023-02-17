@@ -1,7 +1,7 @@
 /**
  * 分页数据模型
  */
-export interface Pagination {
+interface Pagination {
   /** 当前页面 index */
   page: number
   /** 页面总数 */
@@ -11,3 +11,5 @@ export interface Pagination {
   /** 数据条目总数 */
   total: number
 }
+
+export default Pagination

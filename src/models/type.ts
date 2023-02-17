@@ -1,7 +1,7 @@
 /**
  * 文章类型数据结构
  */
-export interface Type {
+interface Type {
   /** 类型 ID */
   id: number
   /** 类型名称 */
@@ -15,3 +15,5 @@ export interface Type {
   /** 标签类型时间戳 */
   updatedAt: string
 }
+
+export default Type

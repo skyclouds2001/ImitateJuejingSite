@@ -1,15 +1,15 @@
-export * from './user'
+export type { default as Image } from './image'
 
-export * from './avatar'
+export type { default as User } from './user'
 
-export * from './image'
+export type { default as Avatar } from './avatar'
 
-export * from './article'
+export type { default as Article } from './article'
 
-export * from './pagination'
+export type { default as Pagination } from './pagination'
 
-export * from './cover'
+export type { default as Cover } from './cover'
 
-export * from './label'
+export type { default as Label } from './label'
 
-export * from './type'
+export type { default as Type } from './type'

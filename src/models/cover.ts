@@ -1,9 +1,9 @@
-import type { Image } from './image'
+import type Image from './image'
 
 /**
  * 文章封面图数据结构
  */
-export interface Cover extends Omit<Image, 'path'> {
+interface Cover extends Omit<Image, 'path'> {
   alternativeText: unknown
   caption: unknown
   /** 头像添加时间戳 */
@@ -19,3 +19,5 @@ export interface Cover extends Omit<Image, 'path'> {
   /** 头像更新时间戳 */
   updatedAt: string
 }
+
+export default Cover

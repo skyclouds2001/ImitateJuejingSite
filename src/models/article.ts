@@ -1,12 +1,12 @@
-import type { User } from './user'
-import type { Cover } from './cover'
-import type { Label } from './label'
-import type { Type } from './type'
+import type User from './user'
+import type Cover from './cover'
+import type Label from './label'
+import type Type from './type'
 
 /**
  * 文章数据结构
  */
-export interface Article {
+interface Article {
   /** 文章作者 */
   author: { data: OmitId<User> }
   /** 文章评论 ID todo */
@@ -38,3 +38,5 @@ export interface Article {
   /** 文章更新时间 */
   updatedAt: string
 }
+
+export default Article
