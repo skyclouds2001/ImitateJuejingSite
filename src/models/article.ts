@@ -1,5 +1,6 @@
 import type { User } from './user'
 import type { Cover } from './cover'
+import type { Label } from './label'
 
 /**
  * 文章数据结构
@@ -7,7 +8,7 @@ import type { Cover } from './cover'
 export interface Article {
   /** 文章作者 */
   author: { data: OmitId<User> }
-  /** 文章评论 todo */
+  /** 文章评论 ID todo */
   comments: number[]
   /** 文章内容 */
   content: string
@@ -21,8 +22,8 @@ export interface Article {
   digest: string
   /** 文章 ID */
   id: number
-  /** 文章的标签 ID todo */
-  labels: number[]
+  /** 文章的标签 */
+  labels: { data: OmitId<Label>[] }
   /** 给文章点赞用户 ID todo */
   likeUsers: number[]
   /** 文章发布时间 */
@@ -31,7 +32,7 @@ export interface Article {
   readCnt: number
   /** 文章标题 */
   title: string
-  /** 文章分类tab todo */
+  /** 文章分类 tab ID todo */
   type: string
   /** 文章更新时间 */
   updatedAt: string

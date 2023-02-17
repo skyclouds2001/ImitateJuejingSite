@@ -9,3 +9,5 @@ export * from './article'
 export * from './cover'
 
 export * from './pagination'
+
+export * from './label'
