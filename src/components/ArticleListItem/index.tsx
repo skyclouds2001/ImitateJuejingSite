@@ -50,12 +50,7 @@ const ArticleListItem: React.FC<{ article: Article }> = (props) => {
           </div>
           <Image className={styles.img} src={article.cover?.data?.attributes.url ?? ''} loader={customNextImageLoader} alt={article.title} loading="lazy" width={120} height={80} />
         </div>
-        <div className={styles.dislike}>
-          <svg data-v-18e57856="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon-close">
-            <path data-v-18e57856="" d="M1.70538 11.7191C1.52399 11.899 1.22992 11.899 1.04853 11.7191L1.03125 11.7019C0.849866 11.522 0.84987 11.2302 1.03125 11.0502L10.2956 1.85884C10.477 1.67889 10.7711 1.67889 10.9525 1.85885L10.9697 1.876C11.1511 2.05596 11.1511 2.34773 10.9697 2.52769L1.70538 11.7191Z"></path>
-            <path data-v-18e57856="" d="M1.0828 2.48943C0.903312 2.30758 0.904276 2.01369 1.08495 1.83302L1.10216 1.8158C1.28284 1.63513 1.5748 1.63609 1.75428 1.81794L10.9104 11.0949C11.0898 11.2767 11.0889 11.5706 10.9082 11.7513L10.891 11.7685C10.7103 11.9492 10.4183 11.9482 10.2389 11.7664L1.0828 2.48943Z"></path>
-          </svg>
-        </div>
+        <div className={styles.dislike}></div>
       </section>
     </>
   )
