@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, type MouseEventHandler } from 'react'
 import Link from 'next/link'
 import { useSelector, useDispatch } from 'react-redux'
+import { throttle } from 'lodash-es'
 import { useArticleType } from '@/api'
 import { changeArticleselectkey, type AppDispatch, type RootState } from '@/store'
+import { getArticleTypeKey } from '@/util'
 import styles from './index.module.css'
 
 const ArticleTab: React.FC = () => {
@@ -11,66 +13,69 @@ const ArticleTab: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
 
   const selected = useSelector<RootState, RootState['articletab']['selectkey']>((state) => state.articletab.selectkey)
-  console.log(selected)
 
-  // 浏览器滚动条位置
-  const [SliderHeight, setSliderHeight] = useState(0)
+  /**
+   * 切换 tab 事件
+   *
+   * @param e 鼠标点击事件
+   */
+  const handleChangeItem: MouseEventHandler<HTMLSpanElement> = (e) => {
+    dispatch(changeArticleselectkey((e.target as HTMLSpanElement)?.dataset?.key ?? 'recommended'))
+  }
 
-  // 更新浏览器滚动条位置函数
-  const sliderHeightUpdate: any = (e: any) => {
-    setSliderHeight(e.target.scrollTop)
-    const artnav = document.querySelector(`#${styles.container}`)
-    if (artnav && e.target.scrollTop >= 290) artnav.className = styles.artnavcontainerscroll
-    else if (artnav) artnav.className = styles.container
+  const [isScroll, setScroll] = useState(false)
+
+  /**
+   * 监听浏览器滚动条位置方法
+   *
+   * @param e 鼠标滚动事件
+   */
+  const handleElementScroll = (e: WheelEvent) => {
+    if (e.deltaY > 0 && document.body.scrollTop > 500) {
+      setScroll(true)
+    } else if (e.deltaY < 0) {
+      setScroll(false)
+    } else {
+      setScroll(false)
+    }
   }
 
   useEffect(() => {
-    // 获取滚动元素
-    const scrollEle = document.getElementById('scrollDom') || document.body
-    scrollEle.addEventListener('scroll', sliderHeightUpdate)
+    const fun = throttle(handleElementScroll, 100)
+    document.body.addEventListener('wheel', fun)
     return () => {
-      // 组件销毁时移除监听事件
-      scrollEle.removeEventListener('scroll', sliderHeightUpdate)
+      document.body.removeEventListener('wheel', fun)
     }
   }, [])
-
-  // 点击 tab
-  const handleChangeItem = (e: any) => {
-    dispatch(changeArticleselectkey(String(e.target.dataset.key)))
-    console.log(e.target.dataset.key)
-  }
 
   return (
     <>
       {/* 文章分类导航栏 */}
-      <div className={styles.container}>
+      <div className={[styles.container, isScroll ? styles.scroll : ''].join(' ')}>
         <ul className={styles.list}>
           {/* 综合 */}
           <li key="recommended" className={styles.item}>
-            <button onClick={handleChangeItem} data-key="recommended" className={selected === 'recommended' ? styles.select : ''}>
-              <Link href={'/recommended'} target="_blank">
-                综合
-              </Link>
-            </button>
+            <Link href={'/recommended'} target="_blank" className={selected === 'recommended' ? styles.select : ''} onClick={handleChangeItem}>
+              <span data-key="recommended">综合</span>
+            </Link>
           </li>
           {/* 关注 */}
           <li key="following" className={styles.item}>
-            <button onClick={handleChangeItem} data-key="following" className={selected === 'following' ? styles.select : ''}>
-              <Link href={'/following'} target="_blank">
-                关注
-              </Link>
-            </button>
+            <Link href={'/following'} target="_blank" className={selected === 'following' ? styles.select : ''} onClick={handleChangeItem}>
+              <span data-key="following">关注</span>
+            </Link>
           </li>
           {/* ${item.label} */}
-          {data?.data.map((v) => (
-            <li key={v.id} className={styles.item}>
-              <button onClick={handleChangeItem} data-key={v.id} className={selected === String(v.id) ? styles.select : ''}>
-                <Link href={`/${v.id}`} target="_blank">
-                  {v.attributes.type}
+          {data?.data.map((v) => {
+            const key = getArticleTypeKey(v.id)
+            return (
+              <li key={key} className={styles.item}>
+                <Link href={`/${key}`} target="_blank" className={selected === key ? styles.select : ''} onClick={handleChangeItem}>
+                  <span data-key={key}>{v.attributes.type}</span>
                 </Link>
-              </button>
-            </li>
-          ))}
+              </li>
+            )
+          })}
           {/* 标签管理 */}
           {
             <li key="subscribed" className={styles.item}>
