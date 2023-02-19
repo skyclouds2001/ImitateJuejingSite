@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
+import { throttle } from 'lodash-es'
 import { useTopTab } from '@/api'
 import logo from '@/assets/img/logo-pc.svg'
 import { ThemeContext } from '../ThemeContext/ThemeContext'
@@ -12,37 +13,29 @@ import styles from './index.module.css'
 const TopTab: React.FC = () => {
   const { data: tabs } = useTopTab()
 
-  /*
-  // 浏览器窗口宽度
-  const [Browsewidth, setBrowsWidth] = useState<number>(1400)
-  // 浏览器窗口高度
-  const [SliderHeight, setSliderHeight] = useState<number>(0)
-  // 更新浏览器窗口宽度函数
-  const browsewidthUpdate: any = (e: any) => {
-    setBrowsWidth(e.target.innerWidth)
-    const logotext = document.querySelector(`.${styles.logo} span`)
-    if (logotext && e.target.innerWidth <= 600) logotext.className = styles.hidden
-    else if (logotext) logotext.className = ''
+  const [isVisible, setVisible] = useState(true)
+
+  /**
+   * 监听浏览器滚动条位置方法
+   *
+   * @param e 鼠标滚动事件
+   */
+  const handleElementScroll = (e: WheelEvent) => {
+    if (e.deltaY > 0 && document.body.scrollTop > 500) {
+      setVisible(false)
+    } else {
+      setVisible(true)
+    }
   }
-  // 更新浏览器滚动条位置函数
-  const sliderHeightUpdate: any = (e: any) => {
-    setSliderHeight(e.target.scrollTop)
-    const top = document.querySelector('#' + styles.toptabcontainer)
-    if (top && e.target.scrollTop >= 500) top.className = styles.toptabcontainersroll
-    else if (top) top.className = styles.toptabcontainerfirst
-  }
+
   useEffect(() => {
-    // 获取滚动元素
-    const scrollEle = document.getElementById('scrollDom') || document.body
-    window.addEventListener('resize', browsewidthUpdate)
-    scrollEle.addEventListener('scroll', sliderHeightUpdate)
+    const fun = throttle(handleElementScroll, 100)
+
+    document.body.addEventListener('wheel', fun)
     return () => {
-      // 组件销毁时移除监听事件
-      window.removeEventListener('resize', browsewidthUpdate)
-      scrollEle.removeEventListener('scroll', sliderHeightUpdate)
+      document.body.removeEventListener('wheel', fun)
     }
   }, [])
-   */
 
   /**
    * 页面较窄情况下设置下拉框显示与否
@@ -72,7 +65,7 @@ const TopTab: React.FC = () => {
     <>
       {/* 顶部tab */}
       <header className={styles.container}>
-        <div className={styles.visible}>
+        <div className={isVisible ? styles.visible : ''}>
           <div>
             {/* 稀土掘金logo区域 */}
             <Link className={styles.logo} href="/" target="_self">
@@ -101,7 +94,7 @@ const TopTab: React.FC = () => {
                   <span>{tabs?.data?.at(0)?.attributes.label ?? '首页'}</span>
                   {isShow ? <CaretUpOutlined /> : <CaretDownOutlined />}
                 </button>
-                <ul className={[styles.list, styles.show].join(' ')}>
+                <ul className={[styles.list, isShow ? styles.show : ''].join(' ')}>
                   {tabs?.data?.map((v) => (
                     <li className={styles.item} key={v.attributes.key}>
                       <a href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
