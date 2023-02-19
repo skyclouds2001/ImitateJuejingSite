@@ -42,6 +42,7 @@ const ArticleTab: React.FC = () => {
 
   useEffect(() => {
     const fun = throttle(handleElementScroll, 100)
+
     document.body.addEventListener('wheel', fun)
     return () => {
       document.body.removeEventListener('wheel', fun)

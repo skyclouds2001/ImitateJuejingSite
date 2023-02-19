@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import dayjs from 'dayjs'
 import type { Article } from '@/models'
 import { customNextImageLoader } from '@/util'
 import styles from './index.module.scss'
@@ -12,7 +13,7 @@ const ArticleListItem: React.FC<{ article: Article }> = (props) => {
       <section className={styles.item}>
         <div className={styles.meta}>
           <div className={styles.author}>{article.author.data.attributes.username}</div>
-          <div className={styles.date}>1月前 {/* todo */}</div>
+          <div className={styles.date}>{dayjs(article.createTime).fromNow().replaceAll(' ', '')}</div>
           <div className={styles.tags}>
             {article.labels.data.map((v) => (
               <a key={v.id} href={`/tag/${v.attributes.label}`} target="_blank" rel="noreferrer" className={styles.tag}>

@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import { ConfigProvider, App as Ap } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
-import dayjs from 'dayjs'
-import { Provider } from 'react-redux'
-import 'dayjs/locale/zh-cn'
 import 'antd/dist/reset.css'
-import store from '@/store'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/zh-cn'
+import { Provider } from 'react-redux'
 import '@/styles/globals.css'
 import { ThemeContextProvider } from '@/components/ThemeContext/ThemeContext'
 import { Layout } from '@/components/Layout/layout'
+import store from '@/store'
 
 dayjs.locale('zh-cn')
+
+dayjs.extend(relativeTime)
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (

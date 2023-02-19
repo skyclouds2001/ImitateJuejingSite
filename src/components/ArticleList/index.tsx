@@ -19,6 +19,7 @@ const ArticleList: React.FC = () => {
    */
   const switchNav: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault()
+    e.stopPropagation()
     const { index } = (e.target as HTMLAnchorElement).dataset
     if (index) {
       setCurrentNav(parseInt(index))
