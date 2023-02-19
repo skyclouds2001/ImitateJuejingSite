@@ -1,18 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CaretDownOutlined } from '@ant-design/icons'
+import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { useTopTab } from '@/api'
 import logo from '@/assets/img/logo-pc.svg'
 import { ThemeContext } from '../ThemeContext/ThemeContext'
+import { Theme } from '@/enum'
 import { getTopTabPath } from '@/util'
 import styles from './index.module.css'
 
 const TopTab: React.FC = () => {
   const { data: tabs } = useTopTab()
-
-  // 主题 theme
-  const { theme, setTheme } = useContext(ThemeContext)
 
   /*
   // 浏览器窗口宽度
@@ -46,27 +44,28 @@ const TopTab: React.FC = () => {
   }, [])
    */
 
-  // nav栏较窄的下拉框点击事件
+  /**
+   * 页面较窄情况下设置下拉框显示与否
+   */
+  const [isShow, setShow] = useState(false)
+
+  /**
+   * 页面较窄情况下的下拉框点击事件
+   */
   const handleDropdown = () => {
-    const nav = document.querySelector('.' + styles.narrower + ' ul')
-    if (nav) {
-      if (nav.className == styles.dropdown) nav.className = styles.hidden
-      else nav.className = styles.dropdown
-    }
+    setShow(!isShow)
   }
+
+  /**
+   * 主题 theme
+   */
+  const { theme, setTheme } = useContext(ThemeContext)
 
   /**
    * 明暗主题切换按钮点击事件
    */
   const handleThemeChange = () => {
-    console.log(theme)
-    if (localStorage.getItem('theme') === 'dark') {
-      setTheme('light')
-      document.body.style.backgroundColor = '#F4F5F5'
-    } else {
-      setTheme('dark')
-      document.body.style.backgroundColor = '#121212'
-    }
+    setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
   }
 
   return (
@@ -97,20 +96,19 @@ const TopTab: React.FC = () => {
               </div>
 
               {/* 页面不够宽的兼容-nav导航栏 */}
-              <div hidden className={styles.narrower}>
-                <button className={styles.navfirst} onClick={handleDropdown}>
-                  {/*{tabs[0].label}*/}
-                  <CaretDownOutlined />
+              <div className={styles.narrower}>
+                <button className={styles.btn} onClick={handleDropdown}>
+                  <span>{tabs?.data?.at(0)?.attributes.label ?? '首页'}</span>
+                  {isShow ? <CaretUpOutlined /> : <CaretDownOutlined />}
                 </button>
-                <ul className={styles.hidden}>
-                  {tabs &&
-                    tabs.data.map((item) => (
-                      <li key={item.attributes.key}>
-                        <a href="https://juejin.cn/" className={item.attributes.key === 1 ? styles.curselect : ''}>
-                          {item.attributes.label}
-                        </a>
-                      </li>
-                    ))}
+                <ul className={[styles.list, styles.show].join(' ')}>
+                  {tabs?.data?.map((v) => (
+                    <li className={styles.item} key={v.attributes.key}>
+                      <a href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
+                        {v.attributes.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

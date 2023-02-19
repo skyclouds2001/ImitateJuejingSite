@@ -63,7 +63,9 @@
   }
 }
 
-.list {
+/* 较宽情况下 Nav 部分 */
+
+.wider .list {
   position: relative;
   display: flex;
   align-items: center;
@@ -87,8 +89,55 @@
   cursor: pointer;
 }
 
-.wider .list .item {
+.wider .item {
   width: 52px;
+}
+
+/* 较窄情况下 Nav 部分 */
+.narrower .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 60px;
+  padding: 0;
+  font-size: 16px;
+  color: #1e80ff;
+  cursor: pointer;
+}
+
+.narrower .btn span {
+  margin-right: 4px;
+}
+
+.narrower .list {
+  display: none;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
+}
+
+.narrower .list.show {
+  position: absolute;
+  top: 52px;
+  right: -48px;
+  left: -48px;
+  display: block;
+  width: 142px;
+  padding: 8px;
+}
+
+.narrower .item {
+  height: 4em;
+}
+
+/* 通用 nav 属性 */
+
+.wider,
+.narrower {
+  position: relative;
 }
 
 .item a {
@@ -146,7 +195,7 @@
   transform: scale(0.75);
 }
 
-/* 切换主题 */
+/* 切换主题按钮 */
 
 .theme {
   position: absolute;
@@ -154,6 +203,6 @@
   width: 30px;
   height: 30px;
   margin-top: 12px;
-  background-image: var(--topnav-theme-icon);
+  background-image: var(--theme-controllor-icon);
   background-size: 30px 30px;
 }
