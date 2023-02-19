@@ -1,3 +1,5 @@
+import type Article from './article'
+
 /**
  * 文章类型数据结构
  */
@@ -8,6 +10,8 @@ interface Type {
   type: string
   /** 分类下文章数 */
   level: number
+  /** 分类下文章列表 */
+  articles: Array<OmitId<Article>>
   /** 标签类型时间戳 */
   createdAt: string
   /** 标签类型时间戳 */
