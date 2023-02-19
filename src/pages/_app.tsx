@@ -10,7 +10,7 @@ import 'dayjs/locale/zh-cn'
 import { Provider } from 'react-redux'
 import '@/styles/globals.css'
 import { ThemeContextProvider } from '@/components/ThemeContext/ThemeContext'
-import { Layout } from '@/components/Layout/layout'
+import Layout from '@/components/Layout'
 import store from '@/store'
 
 dayjs.locale('zh-cn')

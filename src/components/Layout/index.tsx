@@ -2,7 +2,7 @@ import React from 'react'
 import TopTab from '@/components/TopTab'
 import styles from './index.module.css'
 
-export const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return (
     <>
       <TopTab />
@@ -10,3 +10,5 @@ export const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
     </>
   )
 }
+
+export default Layout
