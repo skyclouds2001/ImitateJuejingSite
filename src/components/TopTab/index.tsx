@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
-import styles from './TopTab.module.css'
 import Image from 'next/image'
-import logo from '/public/logo.png'
 import { CaretDownOutlined } from '@ant-design/icons'
+import { useTopTab } from '@/api'
+import logo from '/public/logo.png'
 import { ThemeContext } from '../ThemeContext/ThemeContext'
-import { NavProps } from '@/interface/nav'
+import styles from './index.module.css'
 
-const TopTab: React.FC<NavProps> = ({ navList }) => {
+const TopTab: React.FC = () => {
+  const { data: tabs } = useTopTab()
+
   // 主题 theme
   const { setTheme } = useContext(ThemeContext)
-  // 顶部tab 配置数组
-  // const navList = useSelector<RootState, RootState['toptab']['topnavList']>((state) => state.toptab.topnavList)
-  // const { navList } = props
   // 浏览器窗口宽度
   const [Browsewidth, setBrowsWidth] = useState<number>(1400)
   // 浏览器窗口高度
@@ -74,14 +73,14 @@ const TopTab: React.FC<NavProps> = ({ navList }) => {
           {/* 页面足够宽-nav导航栏 */}
           <div className={Browsewidth < 1140 ? styles.hidden : styles.navbig}>
             <ul>
-              {navList &&
-                navList.map((item) => (
-                  <li key={item.key}>
-                    <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
-                      {item.label}
+              {tabs &&
+                tabs.data.map((item) => (
+                  <li key={item.attributes.key}>
+                    <a href="https://juejin.cn/" className={item.attributes.key === 1 ? styles.curselect : ''}>
+                      {item.attributes.label}
                     </a>
                     {/* remark备注 */}
-                    {item.remark && <span className={styles.remark}>{item.remark}</span>}
+                    {item.attributes.remark && <span className={styles.remark}>{item.attributes.remark}</span>}
                   </li>
                 ))}
             </ul>
@@ -89,15 +88,15 @@ const TopTab: React.FC<NavProps> = ({ navList }) => {
           {/* 页面不够宽的兼容-nav导航栏 */}
           <div className={(styles.hidden, Browsewidth >= 1140 ? styles.hidden : styles.navsmall)}>
             <button className={styles.navfirst} onClick={handleDropdown}>
-              {navList[0].label}
+              {/*{tabs[0].label}*/}
               <CaretDownOutlined />
             </button>
             <ul className={styles.hidden}>
-              {navList &&
-                navList.map((item) => (
-                  <li key={item.key}>
-                    <a href="https://juejin.cn/" className={item.key === 1 ? styles.curselect : ''}>
-                      {item.label}
+              {tabs &&
+                tabs.data.map((item) => (
+                  <li key={item.attributes.key}>
+                    <a href="https://juejin.cn/" className={item.attributes.key === 1 ? styles.curselect : ''}>
+                      {item.attributes.label}
                     </a>
                   </li>
                 ))}
