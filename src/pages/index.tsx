@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import type { GetServerSideProps } from 'next'
 import { useSelector, useDispatch } from 'react-redux'
@@ -8,8 +9,10 @@ import type { RootState, AppDispatch } from '@/store'
 import styles from './index.module.css'
 import RelatedArticle from '@/components/RealtedArticle/index'
 import AuthorInfo from '@/components/AuthorInfo/index'
+
 interface HomeProps {
   name: string
+  articleList?: any
 }
 
 const Home: React.FC<HomeProps> = (props) => {
@@ -26,34 +29,48 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      <main className="w-screen h-screen flex justify-center items-center flex-col">
-        <h1 className={styles.title}>next.js template</h1>
-        <div className={styles.name}>{props.name}</div>
-        <div className={styles.value}>{value}</div>
-        <button onClick={add}>+</button>
-        <button onClick={sub}>-</button>
-        <Hello />
-        <RelatedArticle></RelatedArticle>
-        <hr />
-        <AuthorInfo></AuthorInfo>
+      <div className={styles.home}>
+        <div className={styles.article_list}>
+          {props.articleList &&
+            props.articleList.map((item: any) => (
+              <div className={styles.article_list_item} key={item.id}>
+                <Link href={`/post/${item.id}`}>
+                  <div className={styles.article_list_item_left}>
+                    <p className={styles.title}>{item.attributes.title}</p>
+                    <div>{item.attributes.content.slice(0, 100)}</div>
+                    <div>{item.attributes.createdAt.slice(0, 10)}</div>
+                  </div>
+                  <div className={styles.article_list_item_right}></div>
+                </Link>
+              </div>
+            ))}
+        </div>
+        <div className={styles.author}>
+          <RelatedArticle number={2}></RelatedArticle>
+          <AuthorInfo></AuthorInfo>
+        </div>
         <style jsx>{`
           div {
             color: #111;
           }
         `}</style>
-      </main>
+      </div>
     </>
   )
 }
 
 Home.propTypes = {
   name: PropTypes.string.isRequired,
+  articleList: PropTypes.any,
 }
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const res = await fetch('http://localhost:3000/api/hello')
   const data: { name: string } = await res.json()
-  return { props: { name: data.name } }
+  const articleJson = await fetch('http://localhost:8080/api/articles')
+  const articleData = await articleJson.json()
+  console.log('articleData', articleData.data) //文章数组
+  return { props: { name: data.name, articleList: articleData.data } }
 }
 
 export default Home

@@ -8,7 +8,8 @@ import instance from '@/lib/http'
 //   link: string
 // }
 // 组件接收一个typeId
-const RelatedArticle = (props: number = 2) => {
+const RelatedArticle = (props: any) => {
+  const number = 1
   const relatedArticleList: any = [
     {
       title: 'Git常用',
