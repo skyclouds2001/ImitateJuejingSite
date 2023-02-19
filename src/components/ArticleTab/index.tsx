@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useSelector, useDispatch } from 'react-redux'
 import { throttle } from 'lodash-es'
 import { useArticleType } from '@/api'
-import { changeArticleselectkey, type AppDispatch, type RootState } from '@/store'
+import { changeArticleSelectKey, type AppDispatch, type RootState } from '@/store'
 import { getArticleTypeKey } from '@/util'
 import styles from './index.module.css'
 
@@ -12,7 +12,7 @@ const ArticleTab: React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>()
 
-  const selected = useSelector<RootState, RootState['articletab']['selectkey']>((state) => state.articletab.selectkey)
+  const selected = useSelector<RootState, RootState['article-tab']['select-key']>((state) => state['article-tab']['select-key'])
 
   /**
    * 切换 tab 事件
@@ -20,7 +20,7 @@ const ArticleTab: React.FC = () => {
    * @param e 鼠标点击事件
    */
   const handleChangeItem: MouseEventHandler<HTMLSpanElement> = (e) => {
-    dispatch(changeArticleselectkey((e.target as HTMLSpanElement)?.dataset?.key ?? 'recommended'))
+    dispatch(changeArticleSelectKey((e.target as HTMLSpanElement)?.dataset?.key ?? 'recommended'))
   }
 
   const [isScroll, setScroll] = useState(false)
