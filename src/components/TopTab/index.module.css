@@ -1,116 +1,135 @@
-#toptabcontainer {
-  position: fixed;
-  left: 0;
-  z-index: 9999;
-  display: flex;
-  width: 100%;
-  height: 3.75rem;
-  background-color: var(--topnav-background-color);
-  border-bottom: 1px solid var(--topnav-border-color);
-}
+/* 主体部分 */
 
-.toptabcontainerfirst {
-  top: 0;
-  transition: all 0.3s linear;
-}
-
-.toptabcontainersroll {
-  top: -3.75rem;
-  transition: all 0.3s linear;
-}
-
-#toptabcontainer .logo {
-  display: flex;
-  height: 1.375rem;
-  margin: 1.19rem 0.625rem;
-  font-size: 18px;
-}
-
-#toptabcontainer .logo span {
-  margin-left: 0.31rem;
-  line-height: 1.375rem;
-  color: var(--topnav-title-color);
-}
-
-#toptabcontainer .navbig ul:first-of-type {
-  display: flex;
-  line-height: 3.75rem;
-  text-align: center;
-}
-
-#toptabcontainer .nav ul li {
+.container {
   position: relative;
-  width: 3.25rem;
-  height: 100%;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--topnav-color);
+  height: 60px;
 }
 
-#toptabcontainer .nav ul li a {
+.container > div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 250;
+  height: 60px;
+  color: #909090;
+  background-color: white;
+  border-bottom: 1px solid #f1f1f1;
+  transition: all 0.2s;
+  transform: translate3d(0, -100%, 0);
+}
+
+.container > div.visible {
+  transform: translateZ(0);
+}
+
+.container > div > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: auto;
+}
+
+/* LOGO 部分 */
+
+.logo {
   display: inline-block;
-  height: 3.75rem;
+  width: auto;
+  height: 22px;
+  margin-right: 1rem;
+  margin-left: 24px;
+}
+
+/* Nav 部分 */
+
+.nav {
+  flex: 1 0 auto;
+  height: 100%;
+  line-height: normal;
+}
+
+@media screen and (max-width: 1140px) {
+  .wider {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .narrower {
+    display: none;
+  }
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 99;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #86909c;
   cursor: pointer;
 }
 
-#toptabcontainer .nav ul li a:hover {
-  color: #515767;
-  border-bottom: 2px solid #1e80ff;
+.wider .list .item {
+  width: 52px;
 }
 
-/* 被选中的nav item */
-#toptabcontainer .nav .curselect {
-  color: #1e80ff;
-}
-
-/* 切换nav栏的显示模式 */
-.hidden {
-  display: none;
-}
-
-/* 当页面过窄时nav显示 */
-#toptabcontainer .nav .navsmall {
+.item a {
   position: relative;
-}
-
-#toptabcontainer .nav .navsmall .navfirst {
   display: inline-block;
-  width: 3.75rem;
-  height: 3.75rem;
-  font-size: 1rem;
-  line-height: 3.75rem;
+  height: 60px;
+  margin: 0 12px;
+  line-height: 60px;
+  color: #515767;
+}
+
+.item a.selected {
+  font-weight: 500;
   color: #1e80ff;
-  text-align: center;
 }
 
-#toptabcontainer .nav .dropdown {
+.item a:hover {
+  color: #252933;
+}
+
+.item a::before {
   position: absolute;
-  top: 3.125rem;
-  left: -2.93rem;
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 8.875rem;
-  line-height: 3.75rem;
-  text-align: center;
-  background-color: white;
-  border: 1px solid #f1f1f1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
 }
 
-/* 切换主题按钮 */
-#toptabcontainer .theme {
+.item a:hover::before {
   position: absolute;
-  right: 5rem;
-  width: 1.875rem;
-  height: 1.875rem;
-  margin-top: 0.9375rem;
-  background-image: var(--topnav-theme-icon);
-  background-size: 1.875rem 1.875rem;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  content: '';
+  background-color: #1e80ff;
 }
 
-/* 红色备注 */
-#toptabcontainer .navbig .remark {
+.remark {
   position: absolute;
   top: 0.3125rem;
   left: 1.5625rem;
@@ -125,5 +144,16 @@
   background-color: red;
   border-radius: 10px;
   transform: scale(0.75);
-  -webkit-transform-origin-x: 0;
+}
+
+/* 切换主题 */
+
+.theme {
+  position: absolute;
+  right: 60px;
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+  background-image: var(--topnav-theme-icon);
+  background-size: 30px 30px;
 }
