@@ -15,3 +15,5 @@ export type { default as Label } from './label'
 export type { default as Type } from './type'
 
 export type { default as Advertisement } from './advertisement'
+
+export type { default as Tab } from './tab'
