@@ -40,6 +40,10 @@ a {
   }
 }
 
+body {
+  background-color: var(--body-background-color) !important;
+}
+
 /* 深色模式 */
 html[data-theme='dark'] {
   --body-background-color: #121212;
@@ -47,7 +51,7 @@ html[data-theme='dark'] {
   --topnav-color: rgb(227 227 227);
   --topnav-title-color: white;
   --topnav-border-color: #333;
-  --topnav-theme-icon: url('../../public/light.png');
+  --theme-controllor-icon: url('../../public/light.png');
   --arttab-background-color: #272727;
   --arttab-color: rgb(227 227 227);
   --bookletadv-background-color: #272727;
@@ -62,7 +66,7 @@ html[data-theme='light'] {
   --topnav-color: #515767;
   --topnav-title-color: black;
   --topnav-border-color: #f1f1f1;
-  --topnav-theme-icon: url('../../public/dark.png');
+  --theme-controllor-icon: url('../../public/dark.png');
   --arttab-background-color: white;
   --arttab-color: rgb(144 144 144);
   --bookletadv-background-color: white;
