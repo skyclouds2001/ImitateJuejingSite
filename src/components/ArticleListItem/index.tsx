@@ -49,7 +49,7 @@ const ArticleListItem: React.FC<{ article: Article }> = (props) => {
               </li>
             </ul>
           </div>
-          <Image className={styles.img} src={article.cover?.data?.attributes.url ?? ''} loader={customNextImageLoader} alt={article.title} loading="lazy" width={120} height={80} />
+          {article.cover?.data?.attributes.url ? <Image className={styles.img} src={article.cover.data.attributes.url} loader={customNextImageLoader} alt={article.title} loading="lazy" width={120} height={80} /> : ''}
         </div>
         <div className={styles.dislike}></div>
       </section>
