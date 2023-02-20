@@ -48,15 +48,14 @@ body {
 html[data-theme='dark'] {
   --body-background-color: #121212;
   --topnav-background-color: #272727;
-  --topnav-color: rgb(227 227 227);
+  --topnav-color: #e3e3e3;
   --topnav-title-color: white;
   --topnav-border-color: #333;
   --theme-controllor-icon: url('../../public/light.png');
   --arttab-background-color: #272727;
-  --arttab-color: rgb(227 227 227);
+  --arttab-color: #e3e3e3;
   --bookletadv-background-color: #272727;
   --bookletadv-color: #7d7d7f;
-  --bookletadv-first-color: #e3e3e3;
 }
 
 /* 浅色模式 */
@@ -68,8 +67,7 @@ html[data-theme='light'] {
   --topnav-border-color: #f1f1f1;
   --theme-controllor-icon: url('../../public/dark.png');
   --arttab-background-color: white;
-  --arttab-color: rgb(144 144 144);
+  --arttab-color: #71777c;
   --bookletadv-background-color: white;
-  --bookletadv-color: #86909c;
-  --bookletadv-first-color: #1d2129;
+  --bookletadv-color: #909090;
 }
