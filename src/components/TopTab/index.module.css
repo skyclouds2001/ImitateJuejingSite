@@ -33,6 +33,13 @@
   margin: auto;
 }
 
+@media (max-width: 1149px) {
+  .container > div > div {
+    width: 97%;
+    margin: 0 2rem;
+  }
+}
+
 /* LOGO 部分 */
 
 .logo {
@@ -41,6 +48,34 @@
   height: 22px;
   margin-right: 1rem;
   margin-left: 24px;
+}
+
+.logo .pc {
+  display: block;
+}
+
+.logo .mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .logo {
+    margin-right: 0;
+  }
+
+  .logo .pc {
+    display: none;
+  }
+
+  .logo .mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 1149px) {
+  .logo {
+    margin-left: 0;
+  }
 }
 
 /* Nav 部分 */

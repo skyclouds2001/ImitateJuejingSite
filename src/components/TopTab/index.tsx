@@ -6,6 +6,7 @@ import { throttle } from 'lodash-es'
 import { useTopTab } from '@/api'
 import LogoLight from '@/assets/img/logo-pc-light.svg'
 import LogoDark from '@/assets/img/logo-pc-dark.svg'
+import LogoMobile from '@/assets/img/logo-mobile.svg'
 import { ThemeContext } from '@/components/ThemeContext'
 import { Theme } from '@/enum'
 import { getTopTabPath } from '@/util'
@@ -79,7 +80,8 @@ const TopTab: React.FC = () => {
           <div>
             {/* 稀土掘金logo区域 */}
             <Link className={styles.logo} href="/" target="_self">
-              <Image src={useIcon()} alt="稀土掘金" width={107}></Image>
+              <Image className={styles.pc} src={useIcon()} alt="稀土掘金" width={107} />
+              <Image className={styles.mobile} src={LogoMobile} alt="稀土掘金" />
             </Link>
 
             {/* 导航栏 */}
