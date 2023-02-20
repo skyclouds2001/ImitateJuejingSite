@@ -51,7 +51,7 @@ html[data-theme='dark'] {
   --topnav-color: #e3e3e3;
   --topnav-title-color: white;
   --topnav-border-color: #333;
-  --theme-controllor-icon: url('../../public/light.png');
+  --theme-controllor-icon: url('~@/assets/icon/light.png');
   --arttab-background-color: #272727;
   --arttab-color: #e3e3e3;
   --bookletadv-background-color: #272727;
@@ -65,7 +65,7 @@ html[data-theme='light'] {
   --topnav-color: #515767;
   --topnav-title-color: black;
   --topnav-border-color: #f1f1f1;
-  --theme-controllor-icon: url('../../public/dark.png');
+  --theme-controllor-icon: url('~@/assets/icon/dark.png');
   --arttab-background-color: white;
   --arttab-color: #71777c;
   --bookletadv-background-color: white;
