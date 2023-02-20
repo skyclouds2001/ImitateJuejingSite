@@ -4,7 +4,8 @@ import Image from 'next/image'
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { throttle } from 'lodash-es'
 import { useTopTab } from '@/api'
-import logo from '@/assets/img/logo-pc.svg'
+import LogoLight from '@/assets/img/logo-pc-light.svg'
+import LogoDark from '@/assets/img/logo-pc-dark.svg'
 import { ThemeContext } from '@/components/ThemeContext'
 import { Theme } from '@/enum'
 import { getTopTabPath } from '@/util'
@@ -61,6 +62,15 @@ const TopTab: React.FC = () => {
     setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
   }
 
+  /**
+   * 获取明暗主题下LOGO图片路径
+   *
+   * @returns LOGO图片路径
+   */
+  const useIcon = () => {
+    return theme === Theme.LIGHT ? LogoLight : LogoDark
+  }
+
   return (
     <>
       {/* 顶部tab */}
@@ -69,7 +79,7 @@ const TopTab: React.FC = () => {
           <div>
             {/* 稀土掘金logo区域 */}
             <Link className={styles.logo} href="/" target="_self">
-              <Image src={logo} alt="稀土掘金" width={107}></Image>
+              <Image src={useIcon()} alt="稀土掘金" width={107}></Image>
             </Link>
 
             {/* 导航栏 */}
