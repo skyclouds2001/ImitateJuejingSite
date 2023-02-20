@@ -1,0 +1,42 @@
+.article {
+  width: 56rem;
+  padding: 2rem;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 2.125rem;
+  color: var(--article-title-color);
+  background-color: var(--article-background-color);
+}
+
+.article h1 {
+  padding: 0.625rem 0;
+  margin-bottom: 10px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.625rem;
+  border-bottom: 1px solid var(--topnav-border-color);
+}
+
+.article .title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 2;
+  color: var(--article-title-color);
+}
+
+.article .userinfo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.article .userinfo .username {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--artcile-username-color);
+}
+
+.article .userinfo .info {
+  color: var(--article-time-color);
+}

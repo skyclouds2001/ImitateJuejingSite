@@ -56,6 +56,10 @@ html[data-theme='dark'] {
   --arttab-color: #e3e3e3;
   --bookletadv-background-color: #272727;
   --bookletadv-color: #7d7d7f;
+  --article-background-color: #272727;
+  --article-title-color: white;
+  --article-username-color: #515767;
+  --article-time-color: #8a919f;
 }
 
 /* 浅色模式 */
@@ -70,4 +74,8 @@ html[data-theme='light'] {
   --arttab-color: #71777c;
   --bookletadv-background-color: white;
   --bookletadv-color: #909090;
+  --article-background-color: white;
+  --article-title-color: #252933;
+  --article-username-color: #515767;
+  --article-time-color: #8a919f;
 }
