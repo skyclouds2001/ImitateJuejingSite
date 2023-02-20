@@ -25,6 +25,13 @@
   line-height: 1;
 }
 
+@media (max-width: 980px) {
+  .list {
+    width: auto;
+    overflow-x: auto;
+  }
+}
+
 .item {
   position: relative;
   display: flex;
@@ -41,11 +48,24 @@
   padding: 0 12px 0 0;
 }
 
+@media (max-width: 980px) {
+  .item:first-child {
+    padding: 0 1.5rem;
+  }
+}
+
 .item:last-child {
   position: absolute;
   top: 0;
   right: 0;
   padding: 0 0 0 12px;
+}
+
+@media (max-width: 980px) {
+  .item:last-child {
+    display: none;
+    padding: 0 1.5rem;
+  }
 }
 
 .item a {
