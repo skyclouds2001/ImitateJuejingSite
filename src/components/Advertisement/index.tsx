@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react'
 import Image from 'next/image'
-import CloseImage from '/src/assets/icon/close.png'
-import { Advertisement } from '@/models'
+import CloseIcon from '@/assets/icon/close.png'
+import type { Advertisement } from '@/models'
 import { customNextImageLoader } from '@/util'
 import styles from './index.module.css'
 
@@ -28,7 +28,7 @@ const AdvertisementBox: React.FC<{ advertisement: Advertisement }> = (props) => 
         </a>
         <div>
           {/* 关闭 */}
-          <Image className={styles.close} src={CloseImage} alt="关闭广告" width={16} height={16} onClick={handlerCloseAd}></Image>
+          <Image className={styles.close} src={CloseIcon} alt="关闭广告" width={16} height={16} onClick={handlerCloseAd}></Image>
           {/* 广告 */}
           <a className={styles.advertise} href="https://bd.juejin.cn/?utm_campaign=bd&utm_source=web&utm_medium=banner" target="_blank" rel="noreferrer">
             <span>投放</span>

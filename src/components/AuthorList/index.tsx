@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuthor } from '@/api'
-import styles from './index.module.scss'
 import AuthorItem from '@/components/AuthorListItem'
+import styles from './index.module.scss'
 
 const AuthorList: React.FC = () => {
   const { data: authors } = useAuthor()

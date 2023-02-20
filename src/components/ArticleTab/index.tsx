@@ -67,7 +67,7 @@ const ArticleTab: React.FC = () => {
             </Link>
           </li>
           {/* ${item.label} */}
-          {data?.data.map((v) => {
+          {data?.data?.map((v) => {
             const key = getArticleTypeKey(v.id)
             return (
               <li key={key} className={styles.item}>
