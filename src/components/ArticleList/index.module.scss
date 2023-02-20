@@ -1,20 +1,20 @@
+.list {
+  width: 700px;
+  margin-right: 260px;
+  background-color: var(--article-list-background-color);
+  border-radius: 2px;
+}
+
 @media (max-width: 960px) {
   .list {
     width: 100%;
   }
 }
 
-.list {
-  width: 700px;
-  margin-right: 260px;
-  background-color: white;
-  border-radius: 2px;
-}
-
 .container {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--article-list-background-color);
 }
 
 .header {
@@ -24,11 +24,12 @@
   .nav {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 
     .list {
       display: flex;
-      align-items: center;
       justify-content: flex-start;
+      align-items: center;
       line-height: 1;
 
       .item {
@@ -37,7 +38,7 @@
         font-size: 14px;
         cursor: pointer;
         border-right: 1px solid hsl(0deg 0% 59.2% / 20%);
-        color: #909090;
+        color: var(--article-list-text-color);
 
         &.active {
           color: #007fff;

@@ -44,20 +44,6 @@ body {
   background-color: var(--body-background-color) !important;
 }
 
-/* 深色模式 */
-html[data-theme='dark'] {
-  --body-background-color: #121212;
-  --topnav-background-color: #272727;
-  --topnav-color: #e3e3e3;
-  --topnav-title-color: white;
-  --topnav-border-color: #333;
-  --theme-controllor-icon: url('~@/assets/icon/light.png');
-  --arttab-background-color: #272727;
-  --arttab-color: #e3e3e3;
-  --bookletadv-background-color: #272727;
-  --bookletadv-color: #7d7d7f;
-}
-
 /* 浅色模式 */
 html[data-theme='light'] {
   --body-background-color: #f4f5f5;
@@ -70,4 +56,58 @@ html[data-theme='light'] {
   --arttab-color: #71777c;
   --bookletadv-background-color: white;
   --bookletadv-color: #909090;
+  --app-download-background-color: white;
+  --app-download-title-color: #1d2129;
+  --app-download-desc-color: #86909c;
+  --author-list-background-color: white;
+  --author-list-text-color: #333;
+  --author-list-title-color: #333;
+  --author-list-addition-color: #909090;
+  --article-list-background-color: #fff;
+  --article-list-background-color-active: #fff;
+  --article-list-border-color: #e4e6eb7f;
+  --article-list-text-color: #909090;
+  --article-list-title-color: #1d2129;
+  --article-list-author-color: #4e5969;
+  --article-list-date-border-color: #e5e6eb;
+  --article-list-tag-color: #86909c;
+  --article-list-tag-border-color: #4e5969;
+  --article-list-desc-color: #86909c;
+  --article-list-action-color: #4e5969;
+  --article-list-image-alt-color: #0009;
+  --article-list-dislike-icon-color: #000b;
+}
+
+/* 深色模式 */
+html[data-theme='dark'] {
+  --body-background-color: #121212;
+  --topnav-background-color: #272727;
+  --topnav-color: #e3e3e3;
+  --topnav-title-color: white;
+  --topnav-border-color: #333;
+  --theme-controllor-icon: url('~@/assets/icon/light.png');
+  --arttab-background-color: #272727;
+  --arttab-color: #e3e3e3;
+  --bookletadv-background-color: #272727;
+  --bookletadv-color: #7d7d7f;
+  --app-download-background-color: #272727;
+  --app-download-title-color: #e3e3e3;
+  --app-download-desc-color: #969696;
+  --author-list-background-color: #272727;
+  --author-list-text-color: #e3e3e3;
+  --author-list-title-color: #ddd;
+  --author-list-addition-color: #a0a0a0;
+  --article-list-background-color: #272727;
+  --article-list-background-color-active: #313131;
+  --article-list-border-color: #54565b7f;
+  --article-list-text-color: #808080;
+  --article-list-title-color: #d4d4d4;
+  --article-list-author-color: #b0b0b0;
+  --article-list-date-border-color: #989792;
+  --article-list-tag-color: #999;
+  --article-list-tag-border-color: #a1a7a7;
+  --article-list-desc-color: #86898c;
+  --article-list-action-color: #8a8a8a;
+  --article-list-image-alt-color: #fff9;
+  --article-list-dislike-icon-color: #fffb;
 }

@@ -10,8 +10,8 @@ const AppDownload: React.FC = () => {
         <a href="/app" target="_blank" className={styles.link}>
           <Image src={QrCode} alt="下载稀土掘金" width={50} height={50}></Image>
           <div className={styles.text}>
-            <p>下载稀土掘金</p>
-            <p>一个帮助开发者成长的社区</p>
+            <p className={styles.title}>下载稀土掘金</p>
+            <p className={styles.desc}>一个帮助开发者成长的社区</p>
           </div>
         </a>
       </div>
