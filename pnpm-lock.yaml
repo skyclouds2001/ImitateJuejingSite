@@ -25,6 +25,7 @@ specifiers:
   '@types/qs': ^6.9.7
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
+  '@types/showdown': ^2.0.0
   '@types/testing-library__jest-dom': ^5.14.5
   antd: ^5.1.6
   axios: ^1.2.5
@@ -122,6 +123,7 @@ devDependencies:
   '@types/qs': 6.9.7
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/showdown': 2.0.0
   '@types/testing-library__jest-dom': 5.14.5
   cssnano: 5.1.14_postcss@8.4.21
   eslint: 8.32.0
@@ -1966,6 +1968,10 @@ packages:
     resolution: { integrity: sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w== }
     dependencies:
       '@types/node': 18.11.18
+    dev: true
+
+  /@types/showdown/2.0.0:
+    resolution: { integrity: sha512-70xBJoLv+oXjB5PhtA8vo7erjLDp9/qqI63SRHm4REKrwuPOLs8HhXwlZJBJaB4kC18cCZ1UUZ6Fb/PLFW4TCA== }
     dev: true
 
   /@types/stack-utils/2.0.1:
