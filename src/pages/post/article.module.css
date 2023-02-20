@@ -1,4 +1,5 @@
 .article {
+  position: relative;
   width: 56rem;
   padding: 2rem;
   margin: 0 auto;
@@ -39,4 +40,35 @@
 
 .article .userinfo .info {
   color: var(--article-time-color);
+}
+
+.about {
+  position: absolute;
+  top: 0;
+  right: -330px;
+}
+
+.auth {
+  margin-bottom: 30px;
+}
+
+.relate {
+  margin-bottom: 30px;
+}
+
+.directory {
+  width: 300px;
+
+  /* height: 300px; */
+  background-color: #fff;
+}
+
+.directory h3 {
+  padding: 1.333rem 0;
+  margin: 0 1.667rem;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2rem;
+  color: #1d2129;
+  border-bottom: 1px solid #e4e6eb;
 }

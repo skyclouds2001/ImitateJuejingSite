@@ -46,6 +46,7 @@
     "axios": "^1.2.5",
     "dayjs": "^1.11.7",
     "lodash-es": "^4.17.21",
+    "markdown-navbar": "^1.4.3",
     "next": "^13.1.6",
     "prop-types": "^15.8.1",
     "qs": "^6.11.0",

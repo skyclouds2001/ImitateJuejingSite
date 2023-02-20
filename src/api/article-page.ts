@@ -8,7 +8,7 @@ const getArticlePage = (url: any) => {
     .then((res) => res.json())
     .then((data) => {
       const articledata = data.data || {}
-      const userid = articledata.attributes.author.data.id
+      // const userid = articledata.attributes.author.data.id
 
       // // 获取作者信息
       // const userdata = fetch(`${CMS_DOMAIN}/api/users/${userid}?populate=*`)
@@ -29,6 +29,8 @@ const getArticlePage = (url: any) => {
         createtime: articledata.attributes.createTime,
         readCnt: articledata.attributes.readCnt,
         content: articledata.attributes.content,
+        likeCnt: articledata.attributes.likeUsers?.data.length,
+        authorId: articledata.attributes.author.data.id,
       }
       return article
     })
