@@ -33,7 +33,7 @@
   margin: auto;
 }
 
-@media (max-width: 1149px) {
+@media (max-width: 1150px) {
   .container > div > div {
     width: 97%;
     margin: 0 2rem;
@@ -72,7 +72,7 @@
   }
 }
 
-@media (max-width: 1149px) {
+@media (max-width: 1150px) {
   .logo {
     margin-left: 0;
   }
@@ -168,7 +168,7 @@
   height: 4em;
 }
 
-/* 通用 nav 属性 */
+/* 通用 nav 设置 */
 
 .wider,
 .narrower {
@@ -187,6 +187,7 @@
 .item a.selected {
   font-weight: 500;
   color: #1e80ff;
+  pointer-events: none;
 }
 
 .item a:hover {
