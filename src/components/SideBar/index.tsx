@@ -12,7 +12,7 @@ const SideBar: React.FC = () => {
     <>
       <aside className={styles.aside}>
         {/* 小册广告位 */}
-        {data?.data.map((v) => (
+        {data?.data?.map((v) => (
           <Advertisement key={v.id} advertisement={Object.assign(v.attributes, { id: v.id })} />
         ))}
         {/* 下载 APP 模块 */}
