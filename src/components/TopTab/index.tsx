@@ -82,9 +82,9 @@ const TopTab: React.FC = () => {
                 <ul className={styles.list}>
                   {tabs?.data?.map((v) => (
                     <li className={styles.item} key={v.attributes.key}>
-                      <a href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
+                      <Link href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
                         {v.attributes.label}
-                      </a>
+                      </Link>
                       {v.attributes.remark && <span className={styles.remark}>{v.attributes.remark}</span>}
                     </li>
                   ))}
@@ -100,9 +100,9 @@ const TopTab: React.FC = () => {
                 <ul className={[styles.list, isShow ? styles.show : ''].join(' ')}>
                   {tabs?.data?.map((v) => (
                     <li className={styles.item} key={v.attributes.key}>
-                      <a href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''} onClick={handleDropdown}>
+                      <Link href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''} onClick={handleDropdown}>
                         {v.attributes.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

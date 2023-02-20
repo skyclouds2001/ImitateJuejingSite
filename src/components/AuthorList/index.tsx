@@ -1,7 +1,11 @@
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useAuthor } from '@/api'
+import RightIcon from '@/assets/icon/right.svg'
 import AuthorItem from '@/components/AuthorListItem'
 import styles from './index.module.scss'
+import { JUEJING_DOMAIN } from '@/config'
 
 const AuthorList: React.FC = () => {
   const { data: authors } = useAuthor()
@@ -16,9 +20,10 @@ const AuthorList: React.FC = () => {
           ))}
         </article>
         <footer className={styles.footer}>
-          <a href="/recommendation/authors/recommended" target="_blank">
-            完整榜单
-          </a>
+          <Link href={`${JUEJING_DOMAIN}/recommendation/authors/recommended`} target="_blank" rel="noreferrer">
+            <span>完整榜单</span>
+            <Image src={RightIcon} alt="" width={16} />
+          </Link>
         </footer>
       </div>
     </>
