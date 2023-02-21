@@ -1,0 +1,35 @@
+.list {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--author-list-text-color);
+  background-color: var(--author-list-background-color);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+
+  .header {
+    padding: 10px 16px;
+    border-bottom: 1px solid hsl(0deg 0% 59.2% / 10%);
+  }
+
+  .content {
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer {
+    padding: 12px 0;
+    text-align: center;
+    border-top: 1px solid hsl(0deg 0% 59.2% / 10%);
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        color: #007fff;
+      }
+    }
+  }
+}

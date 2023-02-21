@@ -1,12 +1,8 @@
-.title {
-  font-size: 20px;
-  @apply font-bold;
+.container {
+  margin-top: 60px;
 }
 
-.name {
-  font-size: 16px;
-}
-
-.value {
-  font-size: 16px;
+.content {
+  position: relative;
+  margin-top: 4px;
 }

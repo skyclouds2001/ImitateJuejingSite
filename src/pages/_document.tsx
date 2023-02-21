@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document: React.FC = () => {
   return (
-    <Html lang="zh-CN">
+    <Html lang="zh">
       <Head />
       <body>
         <Main />
