@@ -33,7 +33,7 @@
       overflow: hidden;
       font-size: 14px;
       font-weight: normal;
-      color: #333;
+      color: var(--author-list-title-color);
       text-overflow: ellipsis;
       white-space: nowrap;
 
@@ -62,7 +62,7 @@
       margin-bottom: 3px;
       overflow: hidden;
       font-size: 12px;
-      color: #909090;
+      color: var(--author-list-addition-color);
       text-overflow: ellipsis;
       white-space: nowrap;
     }

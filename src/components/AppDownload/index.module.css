@@ -4,7 +4,7 @@
   font-size: 14px;
   line-height: 1.3;
   color: #333;
-  background-color: #fff;
+  background-color: var(--app-download-background-color);
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
@@ -21,16 +21,16 @@
   margin-right: 16px;
 }
 
-.text p:first-child {
+.text .title {
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
-  color: #1d2129;
+  color: var(--app-download-title-color);
 }
 
-.text p:last-child {
+.text .desc {
   margin-top: 0.5rem;
   font-size: 12px;
   line-height: 20px;
-  color: #86909c;
+  color: var(--app-download-desc-color);
 }

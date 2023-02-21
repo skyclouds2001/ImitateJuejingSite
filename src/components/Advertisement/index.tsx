@@ -1,7 +1,9 @@
 import React, { MouseEventHandler } from 'react'
 import Image from 'next/image'
-import CloseImage from '/src/assets/icon/close.png'
-import { Advertisement } from '@/models'
+import Link from 'next/link'
+import CloseIcon from '@/assets/icon/close.png'
+import { JUEJING_DOMAIN } from '@/config'
+import type { Advertisement } from '@/models'
 import { customNextImageLoader } from '@/util'
 import styles from './index.module.css'
 
@@ -22,18 +24,18 @@ const AdvertisementBox: React.FC<{ advertisement: Advertisement }> = (props) => 
     <>
       {/* 小册广告容器 */}
       <div className={styles.banner}>
-        <a className={styles.link} href={`/book/${ad.id}`} target="_blank" rel="noreferrer">
+        <Link className={styles.link} href={`${JUEJING_DOMAIN}/book/${ad.id}`} target="_blank" rel="noreferrer">
           {/* show 为 true 展示的广告  只会有一个 */}
           <Image src={ad.cover.data.attributes.url} alt={ad.title} loader={customNextImageLoader} loading="lazy" width={240} height={200}></Image>
-        </a>
+        </Link>
         <div>
           {/* 关闭 */}
-          <Image className={styles.close} src={CloseImage} alt="关闭广告" width={16} height={16} onClick={handlerCloseAd}></Image>
+          <Image className={styles.close} src={CloseIcon} alt="关闭广告" width={16} height={16} onClick={handlerCloseAd}></Image>
           {/* 广告 */}
-          <a className={styles.advertise} href="https://bd.juejin.cn/?utm_campaign=bd&utm_source=web&utm_medium=banner" target="_blank" rel="noreferrer">
+          <Link className={styles.advertise} href="https://bd.juejin.cn" target="_blank" rel="noreferrer">
             <span>投放</span>
             <span>广告</span>
-          </a>
+          </Link>
         </div>
       </div>
     </>

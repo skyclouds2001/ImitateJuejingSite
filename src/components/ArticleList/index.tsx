@@ -50,7 +50,7 @@ const ArticleList: React.FC = () => {
             </ul>
           </nav>
         </header>
-        <article className={styles.container}>{data ? data.data.map((v) => <ArticleListItem key={v.id} article={Object.assign(v.attributes, { id: v.id })} />) : ''}</article>
+        <article className={styles.container}>{data ? data?.data?.map((v) => <ArticleListItem key={v.id} article={Object.assign(v.attributes, { id: v.id })} />) : ''}</article>
       </div>
     </>
   )

@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, type MouseEventHandler } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { throttle } from 'lodash-es'
 import { useTopTab } from '@/api'
-import logo from '@/assets/img/logo-pc.svg'
+import LogoLight from '@/assets/img/logo-pc-light.svg'
+import LogoDark from '@/assets/img/logo-pc-dark.svg'
+import LogoMobile from '@/assets/img/logo-mobile.svg'
 import { ThemeContext } from '@/components/ThemeContext'
 import { Theme } from '@/enum'
 import { getTopTabPath } from '@/util'
@@ -31,9 +33,9 @@ const TopTab: React.FC = () => {
   useEffect(() => {
     const fun = throttle(handleElementScroll, 100)
 
-    document.body.addEventListener('wheel', fun)
+    window.addEventListener('wheel', fun)
     return () => {
-      document.body.removeEventListener('wheel', fun)
+      window.removeEventListener('wheel', fun)
     }
   }, [])
 
@@ -45,7 +47,7 @@ const TopTab: React.FC = () => {
   /**
    * 页面较窄情况下的下拉框点击事件
    */
-  const handleDropdown = () => {
+  const handleDropdown: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = () => {
     setShow(!isShow)
   }
 
@@ -57,7 +59,7 @@ const TopTab: React.FC = () => {
   /**
    * 明暗主题切换按钮点击事件
    */
-  const handleThemeChange = () => {
+  const handleThemeChange: MouseEventHandler<HTMLButtonElement> = () => {
     setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
   }
 
@@ -69,7 +71,8 @@ const TopTab: React.FC = () => {
           <div>
             {/* 稀土掘金logo区域 */}
             <Link className={styles.logo} href="/" target="_self">
-              <Image src={logo} alt="稀土掘金" width={107}></Image>
+              <Image className={styles.pc} src={theme === Theme.LIGHT ? LogoLight : LogoDark} alt="稀土掘金" width={107} />
+              <Image className={styles.mobile} src={LogoMobile} alt="稀土掘金" width={31} />
             </Link>
 
             {/* 导航栏 */}
@@ -79,9 +82,9 @@ const TopTab: React.FC = () => {
                 <ul className={styles.list}>
                   {tabs?.data?.map((v) => (
                     <li className={styles.item} key={v.attributes.key}>
-                      <a href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
+                      <Link href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
                         {v.attributes.label}
-                      </a>
+                      </Link>
                       {v.attributes.remark && <span className={styles.remark}>{v.attributes.remark}</span>}
                     </li>
                   ))}
@@ -97,9 +100,9 @@ const TopTab: React.FC = () => {
                 <ul className={[styles.list, isShow ? styles.show : ''].join(' ')}>
                   {tabs?.data?.map((v) => (
                     <li className={styles.item} key={v.attributes.key}>
-                      <a href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''}>
+                      <Link href={getTopTabPath(v.id)} className={v.attributes.key === 0 ? styles.selected : ''} onClick={handleDropdown}>
                         {v.attributes.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
