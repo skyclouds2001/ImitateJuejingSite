@@ -9,3 +9,7 @@ export const getAuthor = (): Promise<User[]> => {
 export const useAuthor = () => {
   return useSWR('/api/users?populate=*', getAuthor)
 }
+// 作者详情组件信息接口
+export const getAuthorInfo = (authorId = 2) => {
+  return http.get(`/api/users/${authorId}?populate=*`)
+}
