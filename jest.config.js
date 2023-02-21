@@ -11,7 +11,7 @@ const customJestConfig = {
   },
   moduleDirectories: ['node_modules'],
   testEnvironment: 'jest-environment-jsdom',
-  testMatch: ['**/tests/unit/**/*.[jt]s?(x)'],
+  testMatch: ['**/tests/{unit,components}/**/*.[jt]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/'],
 }
 
