@@ -25,6 +25,7 @@ specifiers:
   '@types/qs': ^6.9.7
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
+  '@types/showdown': ^2.0.0
   '@types/testing-library__jest-dom': ^5.14.5
   antd: ^5.1.6
   axios: ^1.2.5
@@ -51,6 +52,7 @@ specifiers:
   jest-environment-jsdom: ^29.4.1
   lint-staged: ^13.1.0
   lodash-es: ^4.17.21
+  markdown-navbar: ^1.4.3
   msw: ^1.0.0
   next: ^13.1.6
   pnpm: 7.25.0
@@ -70,6 +72,7 @@ specifiers:
   react-dom: ^18.2.0
   react-redux: ^8.0.5
   sass: ^1.57.1
+  showdown: ^2.1.0
   stylelint: ^14.16.1
   stylelint-config-prettier: ^9.0.4
   stylelint-config-prettier-scss: ^0.0.1
@@ -90,12 +93,14 @@ dependencies:
   axios: 1.2.5
   dayjs: 1.11.7
   lodash-es: 4.17.21
+  markdown-navbar: 1.4.3
   next: 13.1.6_3duxcpitbtplz62feflag7fwby
   prop-types: 15.8.1
   qs: 6.11.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.5_fxtgt6bjwd6p4cwoordejim2zi
+  showdown: 2.1.0
   swr: 2.0.3_react@18.2.0
 
 devDependencies:
@@ -120,6 +125,7 @@ devDependencies:
   '@types/qs': 6.9.7
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/showdown': 2.0.0
   '@types/testing-library__jest-dom': 5.14.5
   cssnano: 5.1.14_postcss@8.4.21
   eslint: 8.32.0
@@ -1966,6 +1972,10 @@ packages:
       '@types/node': 18.11.18
     dev: true
 
+  /@types/showdown/2.0.0:
+    resolution: { integrity: sha512-70xBJoLv+oXjB5PhtA8vo7erjLDp9/qqI63SRHm4REKrwuPOLs8HhXwlZJBJaB4kC18cCZ1UUZ6Fb/PLFW4TCA== }
+    dev: true
+
   /@types/stack-utils/2.0.1:
     resolution: { integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw== }
     dev: true
@@ -2821,7 +2831,6 @@ packages:
   /commander/9.5.0:
     resolution: { integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ== }
     engines: { node: ^12.20.0 || >=14 }
-    dev: true
 
   /comment-parser/1.3.1:
     resolution: { integrity: sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA== }
@@ -2890,6 +2899,11 @@ packages:
     resolution: { integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA== }
     dependencies:
       toggle-selection: 1.0.6
+    dev: false
+
+  /core-js/3.28.0:
+    resolution: { integrity: sha512-GiZn9D4Z/rSYvTeg1ljAIsEqFm0LaN9gVtwDCrKL80zHtS31p9BAjmTxVqTQDMpwlMolJZOFntUG2uwyj7DAqw== }
+    requiresBuild: true
     dev: false
 
   /cosmiconfig-typescript-loader/4.3.0_bxtyj3et3xbsdyxhh3oblnfbj4:
@@ -5802,6 +5816,14 @@ packages:
     engines: { node: '>=8' }
     dev: true
 
+  /markdown-navbar/1.4.3:
+    resolution: { integrity: sha512-esZQ9fHbjnOq/YnmKRrHTRhIO5+UmU3g5BS2tly7RwWrWCjOWv0Nq2A8r1GF9IBZKvrwM/rzaMgjjsQlkbh0tA== }
+    dependencies:
+      core-js: 3.28.0
+      prop-types: 15.8.1
+      react: 16.14.0
+    dev: false
+
   /mathml-tag-names/2.1.3:
     resolution: { integrity: sha512-APMBEanjybaPzUrfqU0IMU5I0AswKMH7k8OTLs0vvV4KZpExkTkY87nR/zpbuTPj+gARop7aGUbl11pnDfW6xg== }
     dev: true
@@ -7963,6 +7985,15 @@ packages:
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
+  /react/16.14.0:
+    resolution: { integrity: sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g== }
+    engines: { node: '>=0.10.0' }
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.8.1
+    dev: false
+
   /react/18.2.0:
     resolution: { integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ== }
     engines: { node: '>=0.10.0' }
@@ -8258,6 +8289,13 @@ packages:
     resolution: { integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A== }
     engines: { node: '>=8' }
     dev: true
+
+  /showdown/2.1.0:
+    resolution: { integrity: sha512-/6NVYu4U819R2pUIk79n67SYgJHWCce0a5xTP979WbNp0FL9MN1I1QK662IDU1b6JzKTvmhgI7T7JYIxBi3kMQ== }
+    hasBin: true
+    dependencies:
+      commander: 9.5.0
+    dev: false
 
   /side-channel/1.0.4:
     resolution: { integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw== }
