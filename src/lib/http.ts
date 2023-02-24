@@ -1,8 +1,9 @@
 import axios from 'axios'
+import { CMS_DOMAIN } from '@/config'
 
 const instance = axios.create({
-  baseURL: 'http:localhost:8080',
-  timeout: 10000,
+  baseURL: CMS_DOMAIN,
+  timeout: 10 * 1000,
   withCredentials: true,
 })
 
@@ -12,7 +13,7 @@ instance.interceptors.request.use(
 )
 
 instance.interceptors.response.use(
-  (result) => result,
+  (result) => result.data,
   (error) => error
 )
 

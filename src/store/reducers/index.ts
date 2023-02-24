@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import helloSlice from './hello'
+import ArticleTabSlice from './article-tab'
 
 const rootReducers = combineReducers({
-  hello: helloSlice,
+  'article-tab': ArticleTabSlice,
 })
 
-export * from './hello'
+export * from './article-tab'
 
 export default rootReducers

@@ -1,0 +1,244 @@
+/* 主体部分 */
+
+.container {
+  position: relative;
+  height: 60px;
+}
+
+.container > div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 250;
+  height: 60px;
+  color: var(--topnav-color);
+  background-color: var(--topnav-background-color);
+  border-bottom: 1px solid var(--topnav-border-color);
+  transition: all 0.2s;
+  transform: translate3d(0, -100%, 0);
+}
+
+.container > div.visible {
+  transform: translateZ(0);
+}
+
+.container > div > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: auto;
+}
+
+@media (max-width: 1150px) {
+  .container > div > div {
+    width: 97%;
+    margin: 0 2rem;
+  }
+}
+
+/* LOGO 部分 */
+
+.logo {
+  display: inline-block;
+  width: auto;
+  height: 22px;
+  margin-right: 1rem;
+  margin-left: 24px;
+}
+
+.logo .pc {
+  display: block;
+}
+
+.logo .mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .logo {
+    margin-right: 0;
+  }
+
+  .logo .pc {
+    display: none;
+  }
+
+  .logo .mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 1150px) {
+  .logo {
+    margin-left: 0;
+  }
+}
+
+/* Nav 部分 */
+
+.nav {
+  flex: 1 0 auto;
+  height: 100%;
+  line-height: normal;
+}
+
+@media screen and (max-width: 1140px) {
+  .wider {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .narrower {
+    display: none;
+  }
+}
+
+/* 较宽情况下 Nav 部分 */
+
+.wider .list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 99;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: var(--topnav-color);
+  cursor: pointer;
+}
+
+.wider .item {
+  width: 52px;
+}
+
+/* 较窄情况下 Nav 部分 */
+.narrower .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 60px;
+  padding: 0;
+  font-size: 16px;
+  color: #1e80ff;
+  cursor: pointer;
+}
+
+.narrower .btn span {
+  margin-right: 4px;
+}
+
+.narrower .list {
+  display: none;
+  font-size: 14px;
+  background-color: var(--topnav-background-color);
+  border: 1px solid var(--topnav-border-color);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
+}
+
+.narrower .list.show {
+  position: absolute;
+  top: 52px;
+  right: -48px;
+  left: -48px;
+  display: block;
+  width: 142px;
+  padding: 8px;
+}
+
+.narrower .item {
+  height: 4em;
+}
+
+/* 通用 nav 设置 */
+
+.wider,
+.narrower {
+  position: relative;
+}
+
+.item a {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  margin: 0 12px;
+  line-height: 60px;
+  color: var(--topnav-color);
+}
+
+.item a.selected {
+  font-weight: 500;
+  color: #1e80ff;
+  pointer-events: none;
+}
+
+.item a:hover {
+  color: var(--topnav-title-color);
+}
+
+.item a::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+
+.item a:hover::before {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  content: '';
+  background-color: #1e80ff;
+}
+
+.remark {
+  position: absolute;
+  top: 0.3125rem;
+  left: 1.5625rem;
+  box-sizing: content-box;
+  width: auto;
+  height: 0.9375rem;
+  padding: 2px;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  color: white;
+  white-space: nowrap;
+  background-color: red;
+  border-radius: 10px;
+  transform: scale(0.75);
+}
+
+/* 切换主题按钮 */
+
+.theme {
+  position: absolute;
+  right: 60px;
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+  background-image: var(--theme-controllor-icon);
+  background-size: 30px 30px;
+}

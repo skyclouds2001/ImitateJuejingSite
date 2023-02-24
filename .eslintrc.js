@@ -10,5 +10,13 @@ module.exports = {
       files: ['**/tests/**/*.[jt]s?(x)'],
       extends: ['plugin:jest/recommended', 'plugin:jest-dom/recommended', 'plugin:testing-library/react', 'plugin:playwright/playwright-test'],
     },
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'jsdoc/require-param-type': 'off',
+        'jsdoc/require-property-type': 'off',
+        'jsdoc/require-returns-type': 'off',
+      },
+    },
   ],
 }
