@@ -14,6 +14,7 @@ import 'markdown-navbar/dist/navbar.css'
 const ArticlePage = (props: any) => {
   const router = useRouter()
   const { articleId } = router.query
+
   const { data } = useArticlePage(Number(articleId))
   // console.log('当前Article页面获取到的数据为', data)
   const [html, sethtml] = useState('')
@@ -23,8 +24,8 @@ const ArticlePage = (props: any) => {
     // 将图片 src 替换
     const html = converter.makeHtml(data?.content)?.replaceAll('<img src="', `<img src="${CMS_DOMAIN}`)
     sethtml(html)
-    console.log('当前的content', data?.content)
   }, [data])
+
   return (
     <>
       <div className={styles.container}>
