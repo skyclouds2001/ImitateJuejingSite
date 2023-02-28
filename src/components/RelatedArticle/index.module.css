@@ -1,7 +1,8 @@
 .box {
   width: 300px;
-  height: 400px;
-  background-color: #fff;
+  height: auto;
+  color: var(--article-title-color);
+  background-color: var(--article-background-color);
 }
 
 /* 相关文章 */
@@ -11,15 +12,14 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 2rem;
-  color: #1d2129;
-  border-bottom: 1px solid #e4e6eb;
+  border-bottom: 1px solid var(--topnav-border-color);
 }
 
 /* 每一个div */
 .item {
   display: block;
   padding: 0.667rem 1.667rem;
-  color: #909090;
+  color: var(--article-title-color);
   text-decoration: none;
   cursor: pointer;
 }
@@ -29,11 +29,11 @@
   justify-content: left;
   margin-top: 4px;
   font-size: 16px;
+  color: var(--article-time-color);
 }
 
 .itemtitle {
   font-size: 16px;
-  color: #252933;
 }
 
 .itemtitle:hover {
@@ -47,5 +47,4 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  color: #8a919f;
 }

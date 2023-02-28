@@ -4,8 +4,10 @@ import Image from 'next/image'
 import { EyeTwoTone, LikeTwoTone } from '@ant-design/icons'
 import styles from './index.module.css'
 import { getAuthorInfo } from '@/api/author'
+import { CMS_DOMAIN } from '@/config/index'
+import { getAuthorWriterLevelImage } from '@/util/author'
 const AuthorInfo = (props: any) => {
-  console.log('当前是AuthorInfo组件', props)
+  const { data } = props
   const [authorInfo, setInfo] = useState({
     imgUrl: 'https://p3-passport.byteimg.com/img/user-avatar/9eb2a75c3063dde89a8da01253c41386~100x100.awebp',
     imgTitle: '图片',
@@ -15,45 +17,27 @@ const AuthorInfo = (props: any) => {
     readCnt: 320,
     likeCnt: 68,
   })
-  // useEffect(() => {
-  //   const { authorId, likeCnt, readCnt } = props.data
-  //   // let authorId = 2
-  //   // let readCnt = 3
-  //   // let likeCnt = 10
 
-  //   getAuthorInfo(authorId).then((res: any) => {
-  //     setInfo({
-  //       imgUrl: res.profile.url,
-  //       imgTitle: res.profile.name,
-  //       username: res.username,
-  //       job: res.job,
-  //       writerLevel: getLevelImg(res.writerLevel),
-  //       readCnt: readCnt,
-  //       likeCnt: likeCnt,
-  //     })
-  //   })
-  // }, [])
-  // 获取对应头像的函数
-  const getLevelImg = (writerLevel: number) => {
-    switch (writerLevel) {
-      case 1:
-      case 2:
-        return require('../../assets/img/lv-2.png')
-      case 3:
-        return require('../../assets/img/lv-3.png')
-      case 4:
-        return require('../../assets/img/lv-4.png')
-      case 5:
-        return require('../../assets/img/lv-5.png')
-      case 6:
-        return require('../../assets/img/lv-6.png')
-      case 7:
-        return require('../../assets/img/lv-7.png')
-      default:
-        return require('../../assets/img/lv-2.png')
+  useEffect(() => {
+    if (data) {
+      const { author: authorData } = data
+      getAuthorInfo(authorData.id)
+        .then((res) => {
+          setInfo({
+            username: res.username,
+            imgTitle: res.profile.name,
+            imgUrl: `${CMS_DOMAIN}${res.profile.url}`,
+            writerLevel: getAuthorWriterLevelImage(res.writerLevel),
+            likeCnt: 68,
+            readCnt: res.heat,
+            job: res.job,
+          })
+          return null
+        })
+        .catch((err) => {})
     }
-  }
-  // console.log(authorInfo)
+  }, [data])
+
   return (
     <>
       <div className={styles.box}>
