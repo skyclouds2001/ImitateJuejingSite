@@ -22,16 +22,17 @@ const getArticlePage = (url: any) => {
       const article = {
         title: articledata.attributes.title,
         author: {
+          id: articledata.attributes.author.data.id,
           avatar: '',
           username: articledata.attributes.author.data.attributes.username,
-          level: '',
+          level: articledata.attributes.author.data.attributes.writerLevel,
         },
         createtime: articledata.attributes.createTime,
         readCnt: articledata.attributes.readCnt,
         content: articledata.attributes.content,
         likeCnt: articledata.attributes.likeUsers?.data.length,
-        authorId: articledata.attributes.author.data.id,
       }
+
       return article
     })
 }
