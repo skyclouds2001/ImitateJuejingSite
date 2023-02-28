@@ -30,26 +30,31 @@ const ArticlePage = (props: any) => {
     <>
       <div className={styles.container}>
         <div className={styles.article}>
+          {/* 文章标题 */}
           <h1 className={styles.title}>{data?.title}</h1>
+          {/* 文章头部信息 */}
           <div className={styles.userinfo}>
             <span className={styles.username}>{data?.author.username}</span>
             <span className={styles.info}>
               {dayjs(data?.createtime).format('YYYY年MM月DD日 HH:mm')} . 阅读 {data?.readCnt}
             </span>
           </div>
+          {/* 文章内容 */}
           <div dangerouslySetInnerHTML={{ __html: html }} className={styles.content} />
-          <div className={styles.about}>
-            <div className={styles.auth}>
-              <AuthorInfo data={data}></AuthorInfo>
-            </div>
-            <div className={styles.relate}>
-              <RelatedArticle></RelatedArticle>
-            </div>
-            <div className={styles.directory}>
-              <h3>目录</h3>
-              <div className="navigation">
-                <MarkdownNavbar source={data?.content} />
-              </div>
+        </div>
+
+        {/* 文章右侧内容框 */}
+        <div className={styles.about}>
+          <div className={styles.auth}>
+            <AuthorInfo data={data}></AuthorInfo>
+          </div>
+          <div className={styles.relate}>
+            <RelatedArticle></RelatedArticle>
+          </div>
+          <div className={styles.directory}>
+            <h3>目录</h3>
+            <div className={styles.navigation}>
+              <MarkdownNavbar source={data?.content} />
             </div>
           </div>
         </div>

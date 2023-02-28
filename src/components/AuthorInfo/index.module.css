@@ -2,7 +2,8 @@
   /* box-sizing: border-box; */
   width: 300px;
   padding: 1.67rem;
-  background-color: #fff;
+  color: var(--article-title-color);
+  background-color: var(--article-background-color);
   border-radius: 4px;
 }
 
@@ -46,7 +47,8 @@
   line-height: 22px;
 
   /* font-size: 1.167rem; */
-  color: #515767;
+
+  /* color: #515767; */
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -69,12 +71,13 @@
   width: 110px;
   padding: 7px 20px;
   font-size: 14px;
+  color: white;
+  background-color: #1d7dfa;
   border-radius: 4px;
 }
 
 .attention {
   margin-right: 6px;
-  background-color: #1d7dfa;
 }
 
 .attention:hover {
@@ -82,17 +85,11 @@
 }
 
 .tell {
-  color: #1e80ff;
-  background-color: #1e80ff0d;
-  border: 1px solid rgb(30 128 255 / 30%);
+  border: 1px solid var(--topnav-border-color);
 }
 
 .tell:hover {
   background-color: #1b1f230d;
-}
-
-.info {
-  background-color: #fff;
 }
 
 .like,
@@ -112,5 +109,6 @@
   font-family: -apple-system, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial !important;
   font-size: 16px;
   font-weight: 500;
-  color: #252933;
+
+  /* color: #252933; */
 }

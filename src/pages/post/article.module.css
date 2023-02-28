@@ -2,8 +2,8 @@
   position: relative;
   width: 56rem;
   padding: 2rem;
-  margin: 0 auto;
   margin-top: 1.25rem;
+  margin-left: 3.125rem;
   font-size: 1.0625rem;
   line-height: 2.125rem;
   color: var(--article-title-color);
@@ -35,7 +35,6 @@
 .article .userinfo .username {
   font-size: 20px;
   font-weight: 500;
-  color: var(--artcile-username-color);
 }
 
 .article .userinfo .info {
@@ -45,22 +44,19 @@
 .about {
   position: absolute;
   top: 0;
-  right: -330px;
+  left: 60.625rem;
 }
 
-.auth {
-  margin-bottom: 30px;
-}
-
-.relate {
-  margin-bottom: 30px;
-}
-
+.auth,
+.relate,
 .directory {
-  width: 300px;
+  margin-bottom: 15px;
+}
 
-  /* height: 300px; */
-  background-color: #fff;
+.container .about .directory {
+  width: 300px;
+  color: var(--article-title-color);
+  background-color: var(--article-background-color);
 }
 
 .directory h3 {
@@ -69,6 +65,5 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 2rem;
-  color: #1d2129;
-  border-bottom: 1px solid #e4e6eb;
+  border-bottom: 1px solid var(--article-time-color);
 }
