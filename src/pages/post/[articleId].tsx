@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import showdown from 'showdown'
 import dayjs from 'dayjs'
@@ -26,6 +27,10 @@ const ArticlePage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>{data?.title} - 掘金</title>
+        <meta name="description" content={data?.title} />
+      </Head>
       <div className={styles.container}>
         <div className={styles.article}>
           {/* 文章标题 */}
