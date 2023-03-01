@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import showdown from 'showdown'
 import { useRouter } from 'next/router'
-import { useArticlePage } from '@/api'
-import styles from './article.module.css'
+import showdown from 'showdown'
 import dayjs from 'dayjs'
-import { CMS_DOMAIN } from '@/config/index'
-import RelatedArticle from '@/components/RelatedArticle'
-import AuthorInfo from '@/components/AuthorInfo/index'
-// markdown-navbar
 import MarkdownNavbar from 'markdown-navbar'
-// The default style of markdown-navbar should be imported additionally
 import 'markdown-navbar/dist/navbar.css'
-const ArticlePage = (props: any) => {
+import { useArticlePage } from '@/api'
+import { CMS_DOMAIN } from '@/config'
+import RelatedArticle from '@/components/RelatedArticle'
+import AuthorInfo from '@/components/AuthorInfo'
+import styles from './article.module.css'
+
+const ArticlePage: React.FC = () => {
   const router = useRouter()
   const { articleId } = router.query
 
   const { data } = useArticlePage(Number(articleId))
-  // console.log('当前Article页面获取到的数据为', data)
   const [html, sethtml] = useState('')
 
   useEffect(() => {

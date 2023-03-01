@@ -1,5 +1,4 @@
 .box {
-  /* box-sizing: border-box; */
   width: 300px;
   padding: 1.67rem;
   color: var(--article-title-color);
@@ -8,7 +7,6 @@
 }
 
 .head {
-  display: block;
   display: flex;
   width: 100%;
   margin-bottom: 6px;
@@ -45,10 +43,6 @@
   overflow: hidden;
   font-weight: 400;
   line-height: 22px;
-
-  /* font-size: 1.167rem; */
-
-  /* color: #515767; */
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -62,8 +56,6 @@
 .opear {
   display: flex;
   justify-content: center;
-
-  /* flex-wrap: nowrap; */
 }
 
 .attention,
@@ -109,6 +101,4 @@
   font-family: -apple-system, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial !important;
   font-size: 16px;
   font-weight: 500;
-
-  /* color: #252933; */
 }
