@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { useAuthor } from '@/api'
 import RightIcon from '@/assets/icon/right.svg'
 import AuthorItem from '@/components/AuthorListItem'
-import styles from './index.module.scss'
 import { JUEJING_DOMAIN } from '@/config'
+import styles from './index.module.scss'
 
 const AuthorList: React.FC = () => {
   const { data: authors } = useAuthor()
@@ -15,7 +15,7 @@ const AuthorList: React.FC = () => {
       <div className={styles.list}>
         <header className={styles.header}>🎖️作者榜</header>
         <article className={styles.content}>
-          {authors?.map((v) => (
+          {authors?.map?.((v) => (
             <AuthorItem key={v.id} author={v} />
           ))}
         </article>

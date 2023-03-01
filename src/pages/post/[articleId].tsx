@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import showdown from 'showdown'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useArticlePage } from '@/api'
-import styles from './article.module.css'
+import showdown from 'showdown'
 import dayjs from 'dayjs'
-import { CMS_DOMAIN } from '@/config/index'
-import RelatedArticle from '@/components/RelatedArticle'
-import AuthorInfo from '@/components/AuthorInfo/index'
-// markdown-navbar
 import MarkdownNavbar from 'markdown-navbar'
-// The default style of markdown-navbar should be imported additionally
 import 'markdown-navbar/dist/navbar.css'
-const ArticlePage = (props: any) => {
+import { useAdvertisement, useArticlePage } from '@/api'
+import { CMS_DOMAIN } from '@/config'
+import Advertisement from '@/components/Advertisement'
+import RelatedArticle from '@/components/RelatedArticle'
+import AuthorInfo from '@/components/AuthorInfo'
+import styles from './article.module.css'
+
+const ArticlePage: React.FC = () => {
   const router = useRouter()
   const { articleId } = router.query
 
   const { data } = useArticlePage(Number(articleId))
-  // console.log('当前Article页面获取到的数据为', data)
   const [html, sethtml] = useState('')
+
+  const { data: ad } = useAdvertisement()
 
   useEffect(() => {
     const converter = new showdown.Converter()
@@ -28,6 +30,10 @@ const ArticlePage = (props: any) => {
 
   return (
     <>
+      <Head>
+        <title>{data?.title} - 掘金</title>
+        <meta name="description" content={data?.title} />
+      </Head>
       <div className={styles.container}>
         <div className={styles.article}>
           {/* 文章标题 */}
@@ -48,6 +54,10 @@ const ArticlePage = (props: any) => {
           <div className={styles.auth}>
             <AuthorInfo data={data}></AuthorInfo>
           </div>
+          {/* 小册广告位 */}
+          {ad?.data?.map((v) => (
+            <Advertisement key={v.id} advertisement={Object.assign(v.attributes, { id: v.id })} />
+          ))}
           <div className={styles.relate}>
             <RelatedArticle></RelatedArticle>
           </div>

@@ -1,12 +1,11 @@
-import React, { useState, type MouseEventHandler } from 'react'
+import React, { useState, useEffect, type MouseEventHandler } from 'react'
 import Link from 'next/link'
 import { useArticle } from '@/api'
 import ArticleListItem from '@/components/ArticleListItem'
+import type { Article } from '@/models'
 import styles from './index.module.scss'
 
 const ArticleList: React.FC = () => {
-  const { data } = useArticle()
-
   /**
    * 当前活跃 Nav
    */
@@ -25,6 +24,26 @@ const ArticleList: React.FC = () => {
       setCurrentNav(parseInt(index))
     }
   }
+
+  const { data } = useArticle()
+
+  const [articles, setArticles] = useState<OmitId<Article>[]>([])
+
+  useEffect(() => {
+    let d = [...(data?.data ?? [])]
+    switch (currentNav) {
+      case 1:
+        d = d?.sort?.((u, v) => u.id - v.id)
+        break
+      case 2:
+        d = d?.sort?.((u, v) => new Date(v.attributes.createTime).getTime() - new Date(u.attributes.createTime).getTime())
+        break
+      case 3:
+        d = d?.sort?.((u, v) => u.attributes.likeUsers.data.length - v.attributes.likeUsers.data.length)
+        break
+    }
+    setArticles(d ?? [])
+  }, [data, currentNav])
 
   return (
     <>
@@ -50,7 +69,11 @@ const ArticleList: React.FC = () => {
             </ul>
           </nav>
         </header>
-        <article className={styles.container}>{data ? data?.data?.map((v) => <ArticleListItem key={v.id} article={Object.assign(v.attributes, { id: v.id })} />) : ''}</article>
+        <article className={styles.container}>
+          {articles?.map?.((v) => (
+            <ArticleListItem key={v.id} article={Object.assign(v.attributes, { id: v.id })} />
+          ))}
+        </article>
       </div>
     </>
   )

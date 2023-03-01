@@ -1,11 +1,11 @@
-import instance from '@/lib/http'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { EyeTwoTone, LikeTwoTone } from '@ant-design/icons'
-import styles from './index.module.css'
 import { getAuthorInfo } from '@/api/author'
-import { CMS_DOMAIN } from '@/config/index'
+import { CMS_DOMAIN } from '@/config'
 import { getAuthorWriterLevelImage } from '@/util/author'
+import styles from './index.module.css'
+
 const AuthorInfo = (props: any) => {
   const { data } = props
   const [authorInfo, setInfo] = useState({
