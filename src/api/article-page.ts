@@ -1,25 +1,13 @@
 import useSWR from 'swr'
-import { http } from '@/lib'
-import type { ArticlePage, Pagination } from '@/models'
-import { CMS_DOMAIN } from '@/config/index'
+import { CMS_DOMAIN } from '@/config'
 
 const getArticlePage = (url: any) => {
   return fetch(url)
     .then((res) => res.json())
     .then((data) => {
       const articledata = data.data || {}
-      // const userid = articledata.attributes.author.data.id
 
-      // // 获取作者信息
-      // const userdata = fetch(`${CMS_DOMAIN}/api/users/${userid}?populate=*`)
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     const userdata = data.data || {}
-      //     console.log('userdata', userdata)
-      //     return userdata
-      //   })
-
-      const article = {
+      return {
         title: articledata.attributes.title,
         author: {
           id: articledata.attributes.author.data.id,
@@ -32,8 +20,6 @@ const getArticlePage = (url: any) => {
         content: articledata.attributes.content,
         likeCnt: articledata.attributes.likeUsers?.data.length,
       }
-
-      return article
     })
 }
 

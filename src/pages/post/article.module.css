@@ -67,3 +67,9 @@
   line-height: 2rem;
   border-bottom: 1px solid var(--article-time-color);
 }
+
+@media (max-width: 1000px) {
+  .about {
+    display: none;
+  }
+}
