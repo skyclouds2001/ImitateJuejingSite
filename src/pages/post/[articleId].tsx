@@ -5,8 +5,9 @@ import showdown from 'showdown'
 import dayjs from 'dayjs'
 import MarkdownNavbar from 'markdown-navbar'
 import 'markdown-navbar/dist/navbar.css'
-import { useArticlePage } from '@/api'
+import { useAdvertisement, useArticlePage } from '@/api'
 import { CMS_DOMAIN } from '@/config'
+import Advertisement from '@/components/Advertisement'
 import RelatedArticle from '@/components/RelatedArticle'
 import AuthorInfo from '@/components/AuthorInfo'
 import styles from './article.module.css'
@@ -17,6 +18,8 @@ const ArticlePage: React.FC = () => {
 
   const { data } = useArticlePage(Number(articleId))
   const [html, sethtml] = useState('')
+
+  const { data: ad } = useAdvertisement()
 
   useEffect(() => {
     const converter = new showdown.Converter()
@@ -51,6 +54,10 @@ const ArticlePage: React.FC = () => {
           <div className={styles.auth}>
             <AuthorInfo data={data}></AuthorInfo>
           </div>
+          {/* 小册广告位 */}
+          {ad?.data?.map((v) => (
+            <Advertisement key={v.id} advertisement={Object.assign(v.attributes, { id: v.id })} />
+          ))}
           <div className={styles.relate}>
             <RelatedArticle></RelatedArticle>
           </div>
